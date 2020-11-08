@@ -1,0 +1,27 @@
+{
+  "name": "book-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TonTon69/Books-Express.git"
+  },
+  "keywords": [
+    "books"
+  ],
+  "author": "tonton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TonTon69/Books-Express/issues"
+  },
+  "homepage": "https://github.com/TonTon69/Books-Express#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.0"
+  }
+}
