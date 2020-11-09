@@ -1,0 +1,14 @@
+extends ../layouts/common
+block content
+    h1 Create Product
+    form(action="/products/create", method="post")
+        .form-group
+            label(for="name") Name
+            input#name(type="text", name="name", class="form-control") 
+        .form-group
+            label(for="image") Image
+            input#image(type="text", name="image", class="form-control") 
+        .form-group
+            label(for="description") Description
+            textarea#description(type="text", name="description", class="form-control") 
+        button.btn.btn-primary Create
