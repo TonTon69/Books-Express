@@ -3,8 +3,8 @@ block content
     h2 Users
     a(href="/users/create") New user
     form(action="/users/search", method="get")
-        input(type="text", name="q")
-        button search
+        input(type="text", name="q", class="form-control")
+        button(class="btn btn-primary") search
     ul
         each user in users
             li= user.name
