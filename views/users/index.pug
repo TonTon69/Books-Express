@@ -1,8 +1,10 @@
-h2 Users
-a(href="/users/create") New user
-form(action="/users/search", method="get")
-    input(type="text", name="q")
-    button search
-ul
-    each user in users
-        li= user.name
+extends ../layouts/common
+block content
+    h2 Users
+    a(href="/users/create") New user
+    form(action="/users/search", method="get")
+        input(type="text", name="q")
+        button search
+    ul
+        each user in users
+            li= user.name
