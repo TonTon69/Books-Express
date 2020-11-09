@@ -1,33 +1,33 @@
-const express = require('express');
-const app = express();
+const express = require("express");
 const port = 3000;
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const app = express();
 
-app.set('view engine', 'pug');
-app.set('views', './views');
+const { MONGOURI } = require("./db");
+mongoose.connect(MONGOURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+mongoose.connection.on("connected", () => {
+  console.log("Connect successfully");
+});
+mongoose.connection.on("error", () => {
+  console.log("Connect failure");
+});
 
-var users = [
-    { id: 1, name: 'hoang'},
-    { id: 2, name: 'minh'},
-]
+const userRouter = require("./routes/user.route");
 
-app.get('/', function (req, res) {
-    res.render('index')
-})
-app.get('/users', function (req, res) {
-    res.render('users/index',{
-        users: users
-    })
-})
-app.get('/users/search', function (req, res) {
-    var q = req.query.q;
-    var matchedUsers = users.filter(function(user) {
-        return user.name.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-    })
-    res.render('users/index',{
-        users: matchedUsers
-    })
-})
+app.set("view engine", "pug");
+app.set("views", "./views");
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/", function (req, res) {
+  res.render("index");
+});
+app.use("/users", userRouter);
 app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`)
-})
+  console.log(`Server listening at http://localhost:${port}`);
+});
