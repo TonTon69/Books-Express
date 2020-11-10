@@ -1,8 +1,8 @@
 extends ../layouts/common
 block content
     h1
-        span.mr-3 Products
-        a.btn.btn-primary(href="/books/create") New product
+        span.mr-3 Books
+        a.btn.btn-primary(href="/books/create") New
     .d-flex.align-items-center
         form.d-flex.ml-auto(action="/books/search", method="get")
             input(type="text", name="q", class="form-control")
@@ -14,4 +14,4 @@ block content
             .card-body
                 h5.card-title=book.name
                 p.card-text=book.description
-                a.btn.btn-primary(href='#') Buy
+                a.btn.btn-primary(href='#') Buy now
