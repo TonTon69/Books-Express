@@ -7,11 +7,13 @@ block content
         form.d-flex.ml-auto(action="/books/search", method="get")
             input(type="text", name="q", class="form-control")
             button(class="btn btn-primary ml-2") Search
-
-    each book in books
-        .card(style='width: 18rem;')
-            img.card-img-top(src=book.image, alt='Card image cap')
-            .card-body
-                h5.card-title=book.name
-                p.card-text=book.description
-                a.btn.btn-primary(href='#') Buy now
+  
+    .row.justify-content-between
+        each book in books
+            .card.mb-5(style='width: 22rem')
+                a(href="/")
+                    img.card-img-top(src=book.image)
+                .card-body
+                    h5.card-title=book.name
+                    p.card-text=book.description
+                    a.btn.btn-primary(href='#') Buy now

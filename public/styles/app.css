@@ -15,3 +15,17 @@ nav {
   font-size: 1.6rem;
   font-weight: 700;
 }
+
+.card a {
+  position: relative;
+  overflow: hidden;
+}
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+.card-img-top:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
