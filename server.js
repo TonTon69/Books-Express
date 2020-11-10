@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
-  res.render("layouts/common");
+  res.render("index");
 });
 app.use("/users", userRouter);
 app.use("/books", bookRouter);

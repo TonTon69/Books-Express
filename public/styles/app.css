@@ -1,5 +1,17 @@
+nav {
+  background-color: black;
+}
 .main-heading {
-  width: 100%;
-  background-image: url(../images/Banner-Books.jpg);
+  background-image: url("/images/Banner-Books.jpg");
+  height: 100vh;
+  min-height: 500px;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+a {
+  color: #fff;
+}
+a:hover {
+  color: #fff;
 }
