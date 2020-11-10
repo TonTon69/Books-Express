@@ -11,7 +11,6 @@ module.exports.index = (req, res, next) => {
 };
 
 module.exports.search = (req, res, next) => {
-  // const name_book = req.query.name;
   Book.find()
     .sort({ _id: -1 })
     .then((books) => {

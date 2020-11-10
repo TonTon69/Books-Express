@@ -1,6 +1,6 @@
 extends ../layouts/common
 block content
-    h1 Edit Book
+    h1 Update Book
     form(action="/books/" + book._id, method="put")
         .form-group
             label(for="name") Name

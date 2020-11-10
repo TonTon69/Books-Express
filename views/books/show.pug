@@ -1,13 +1,13 @@
 extends ../layouts/common
 block content
-    h1
-        span.mr-3=book.name
-    .row.justify-content-between
-        .card.mb-5(style='width: 22rem')
-            a(href="#")
-                img.card-img-top(src=book.image)
-            .card-body
-                a.text-dark(href="#")
-                    h5.card-title=book.name
-                p.card-text=book.description
-                a.btn.btn-primary(href='#') Buy now
+    .row(style="background-color: #f7f8fd; border-radius: 6px;")
+        .view-book.d-flex
+            img.m-4(src=book.image, style="width: 400px; height: 500px; object-fit: cover")
+            .m-4(style="position: relative")
+                h5=book.name
+                p=book.description
+                .d-flex.align-items-center.justify-content-center(style="background-color: #fff; border-radius: 6px; height: 60px")
+                    span.m-4.text-danger(style="font-size: 20px")=book.price
+                .view-book-cart
+                    a.btn.btn-primary.mr-3(href="") Thêm vào giỏ hàng
+                    img.btn.btn-light(src="/images/shopping-cart.svg", style="width: 48px; height: 38px; border: 1px solid rgba(0, 0, 0, 0.2);")

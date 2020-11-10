@@ -7,6 +7,7 @@ const bookSchema = new Schema(
     name: { type: String },
     image: { type: String },
     description: { type: String },
+    price: { type: String },
     slug: { type: String, slug: "name", unique: true },
   },
   {

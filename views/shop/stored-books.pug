@@ -1,24 +1,23 @@
 extends ../layouts/common
 block content
-    h1
-        span.mr-3 My books
-        a.btn.btn-primary(href="/books/create") New
-    .d-flex.align-items-center
-        form.d-flex.ml-auto(action="/books/search", method="get")
-            input(type="text", name="q", class="form-control")
-            button(class="btn btn-primary ml-2") Search
+    h1.mb-4 My books
     table.table
         tr
             th Name
+            th Price
             th Created At
             th Actions
-            th 
+            th
         each book in books
             tr
                 td=book.name
+                td=book.price
                 td=book.createdAt
                 td
                     a.btn.btn-light(href="/books/" + book.slug) View
                 td
                     a.btn.btn-link(href="/books/" + book._id + "/edit") Edit
                     a.btn.btn-link(href="/books/" + book.id) Delete
+    .d-flex.align-items-center.justify-content-center
+        span You don't have any book?
+        a.btn.btn-link(href="/books/create") Create book

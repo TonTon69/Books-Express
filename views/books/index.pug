@@ -8,9 +8,9 @@ block content
             input(type="text", placeholder="Search...", name="name", class="form-control")
             button(class="btn btn-primary ml-2") Search
   
-    .row.justify-content-between
+    .row
         each book in books
-            .card.mb-5(style='width: 22rem')
+            .card.mb-5.mr-4(style='width: 22rem')
                 a(href="/books/" + book.slug)
                     img.card-img-top(src=book.image)
                 .card-body
