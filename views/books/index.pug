@@ -2,16 +2,16 @@ extends ../layouts/common
 block content
     h1
         span.mr-3 Products
-        a.btn.btn-primary(href="/products/create") New product
+        a.btn.btn-primary(href="/books/create") New product
     .d-flex.align-items-center
-        form.d-flex.ml-auto(action="/products/search", method="get")
+        form.d-flex.ml-auto(action="/books/search", method="get")
             input(type="text", name="q", class="form-control")
             button(class="btn btn-primary ml-2") Search
 
-    each product in products
+    each book in books
         .card(style='width: 18rem;')
-            img.card-img-top(src=product.image, alt='Card image cap')
+            img.card-img-top(src=book.image, alt='Card image cap')
             .card-body
-                h5.card-title=product.name
-                p.card-text=product.description
+                h5.card-title=book.name
+                p.card-text=book.description
                 a.btn.btn-primary(href='#') Buy

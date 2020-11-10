@@ -21,7 +21,7 @@ mongoose.connection.on("error", () => {
 
 // Router
 const userRouter = require("./routes/user.route");
-const productRouter = require("./routes/product.route");
+const bookRouter = require("./routes/book.route");
 
 app.set("view engine", "pug");
 app.set("views", "./views");
@@ -35,7 +35,7 @@ app.get("/", function (req, res) {
   res.render("layouts/common");
 });
 app.use("/users", userRouter);
-app.use("/products", productRouter);
+app.use("/books", bookRouter);
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
