@@ -11,9 +11,10 @@ block content
     .row.justify-content-between
         each book in books
             .card.mb-5(style='width: 22rem')
-                a(href="/")
+                a(href="/books/" + book.slug)
                     img.card-img-top(src=book.image)
                 .card-body
-                    h5.card-title=book.name
+                    a.text-dark(href="/books/" + book.slug)
+                        h5.card-title=book.name
                     p.card-text=book.description
                     a.btn.btn-primary(href='#') Buy now

@@ -11,6 +11,7 @@ const { MONGOURI } = require("./db");
 mongoose.connect(MONGOURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  useCreateIndex: true,
 });
 mongoose.connection.on("connected", () => {
   console.log("Connect successfully");

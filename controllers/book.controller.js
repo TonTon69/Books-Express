@@ -32,3 +32,12 @@ module.exports.postCreate = (req, res, next) => {
     })
     .catch(next);
 };
+module.exports.show = (req, res, next) => {
+  Book.findOne({ slug: req.params.slug })
+    .then((book) => {
+      res.render("books/show", {
+        book: book,
+      });
+    })
+    .catch(next);
+};

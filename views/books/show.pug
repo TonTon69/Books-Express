@@ -1,0 +1,13 @@
+extends ../layouts/common
+block content
+    h1
+        span.mr-3=book.name
+    .row.justify-content-between
+        .card.mb-5(style='width: 22rem')
+            a(href="/")
+                img.card-img-top(src=book.image)
+            .card-body
+                a.text-dark(href="/")
+                    h5.card-title=book.name
+                p.card-text=book.description
+                a.btn.btn-primary(href='#') Buy now
