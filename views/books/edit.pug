@@ -1,0 +1,16 @@
+extends ../layouts/common
+block content
+    h1 Edit Book
+    form(action="/books/" + book._id, method="put")
+        .form-group
+            label(for="name") Name
+            input#name(type="text", name="name", value=book.name, class="form-control") 
+        .form-group
+            label(for="image") Image
+            input#image(type="text", name="image", value=book.image, class="form-control") 
+        .form-group
+            label(for="description") Description
+            input#description(type="text", name="description", value=book.description, class="form-control") 
+        button.btn.btn-primary Save
+
+        
