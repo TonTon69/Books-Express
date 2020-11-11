@@ -1,6 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 * {
   text-decoration: none !important;
   box-sizing: border-box;
+}
+body,
+input {
+  font-family: "Poppins", sans-serif;
 }
 
 nav {
@@ -37,4 +42,117 @@ nav {
 .view-book-cart {
   position: absolute;
   bottom: 0;
+}
+
+/* Sign up - Sign in */
+.signup-mt-5 {
+  margin-top: 6rem !important;
+}
+.signup-ml-5 {
+  margin-left: 12rem !important;
+}
+.signup {
+  position: fixed;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.title {
+  font-size: 2.2rem;
+  color: #444;
+}
+.input-field {
+  width: 100%;
+  background-color: #f0f0f0;
+  margin: 0 0 1.5rem 0;
+  height: 55px;
+  border-radius: 55px;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+}
+.input-field i {
+  text-align: center;
+  line-height: 55px;
+  color: #acacac;
+  font-size: 1.1rem;
+}
+.input-field input {
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+}
+.input-field input::placeholder {
+  color: #aaa;
+  font-weight: 500;
+}
+.social-text {
+  padding: 0.7rem 0;
+  font-size: 1rem;
+}
+.social-media {
+  display: flex;
+}
+.social-icon {
+  height: 46px;
+  width: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.45rem;
+  color: #333;
+  border-radius: 50%;
+  border: 1px solid #333;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.social-icon:hover {
+  color: #fb5533;
+  border-color: #fb5533;
+}
+.btn-sign-in,
+.btn-sign-up {
+  width: 150px;
+  height: 49px;
+  font-weight: 600;
+  border-radius: 49px;
+  text-transform: uppercase;
+}
+.btn-sign-up {
+  background-color: #fa6345;
+  border: none;
+  outline: none;
+  color: #fff;
+  margin: 10px 0;
+}
+.btn-sign-up:hover {
+  background-color: #fb5533;
+}
+.signup:before {
+  content: "";
+  position: absolute;
+  height: 2000px;
+  width: 2000px;
+  top: -10%;
+  left: 60%;
+  transform: translateY(-50%);
+  background-color: #fb5533;
+  border-radius: 50%;
+  z-index: -1;
+}
+.panel h3 {
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+}
+.panel p {
+  font-size: 0.95rem;
+  padding: 0.7rem 0;
+}
+.panel.right-panel img {
+  width: 90%;
 }

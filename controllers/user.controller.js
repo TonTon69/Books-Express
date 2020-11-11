@@ -19,8 +19,8 @@ module.exports.search = (req, res) => {
     users: matchedUsers,
   });
 };
-module.exports.create = (req, res) => {
-  res.render("users/create");
+module.exports.signup = (req, res) => {
+  res.render("users/signup");
 };
 
 module.exports.postCreate = (req, res) => {
