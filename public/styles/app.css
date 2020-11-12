@@ -157,3 +157,105 @@ nav {
 .panel.right-panel img {
   width: 90%;
 }
+
+/* Index .body-page-item */
+.body-page-item h6 {
+  color: #7a412a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+.body-page-item h1 {
+  color: #743820;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.body-page-item--production__text {
+  margin-right: 6rem;
+}
+.body-page-item--production__text span {
+  color: #999;
+  font-weight: 500;
+}
+.body-page-item--production__text p {
+  color: #491b09;
+  font-weight: 700;
+}
+.body-page-item--rating i {
+  color: #fb5533;
+}
+.body-page-item--rating span {
+  color: #743820;
+  font-weight: 500;
+}
+.body-page-item--price span {
+  color: #743820;
+  font-size: 3rem;
+  font-weight: 600;
+}
+/* Toggle add to cart */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  height: 48px;
+}
+.switch:before {
+  position: absolute;
+  color: #fff;
+  content: "ADD TO CART";
+  font-size: 0.8rem;
+  font-weight: 600;
+  top: 14px;
+  left: 56px;
+  z-index: 2;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  cursor: pointer;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 38px;
+  height: 38px;
+  left: 5px;
+  bottom: 5px;
+  background-color: #fff;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+}
+.slider.round {
+  background-color: #fb5533;
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+  z-index: 10;
+}
+
+/* .switch input:checked + .slider {
+  background-color: #fb5533;
+} */
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #fb5533;
+}
+.switch input:checked + .slider:before {
+  -webkit-transform: translateX(130px);
+  -ms-transform: translateX(130px);
+  transform: translateX(130px);
+}
