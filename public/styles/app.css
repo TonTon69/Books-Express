@@ -171,7 +171,6 @@ nav {
   font-weight: 700;
   letter-spacing: 3px;
 }
-
 .body-page-item--production__text {
   margin-right: 6rem;
 }
@@ -194,6 +193,18 @@ nav {
   color: #743820;
   font-size: 3rem;
   font-weight: 600;
+}
+.body-page-item h3 {
+  color: #743820;
+  font-weight: 600;
+}
+.price-new,
+.price-old {
+  font-size: 1.5rem !important;
+}
+.price-old {
+  color: #999 !important;
+  text-decoration: line-through !important;
 }
 /* Toggle add to cart */
 .switch {

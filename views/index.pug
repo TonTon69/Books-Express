@@ -6,15 +6,15 @@ block index
                 .main-heading-text--1 A better away to discover books!
                 .main-heading-text--2 We help you find books you'll love.
             a.mt-4.btn.btn-outline-light.main-heading-btn(href="/books", style="width: 150px; border-radius: 25px; font-size: 20px") Read More   
-    .container-fluid.mt-5
+    .container-fluid(style="background-color: #fff7f4; padding: 6rem 0")
         .row
-            .col-lg-6
-                img(src="images/design.jpg", style="width: 250px;")
+            .col-lg-6.d-flex.justify-content-center
+                img(src="images/design.jpg", style="width: 320px;")
             .col-lg-6
                 .body-page-item
                     h6 the business of
                     h1 Design
-                    .body-page-item--production.mt-4.d-flex
+                    .body-page-item--production.mt-4.mb-2.d-flex
                         .body-page-item--production__text
                             span Author
                             p Keith Granet
@@ -37,7 +37,39 @@ block index
                         label.switch.m-0
                             input(type="checkbox")
                             span.slider.round
-
-
-   
+    .container-fluid
+        .row
+            .col-lg-6.d-flex(style="padding: 6rem 0")
+                .col-lg-6.d-flex.justify-content-center
+                    img(src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKSFlnF2yPOf-UW0CtYGERvFAcrPrzcRAq6HNE4XLQ6oO3lzm5", style="width: 200px; height: 240px")
+                .col-lg-6
+                    .body-page-item
+                        h3 Don't Make Me Think
+                        .body-page-item--production.mt-4.d-flex
+                            .body-page-item--production__text.d-flex
+                                span.mr-1 By
+                                p Steve Krug
+                        .body-page-item--price.d-flex.align-items-center.mt-2
+                            span.mr-3.price-new $32.75
+                            span.mr-4.price-old $37.90
+                        label.switch.mt-4
+                            input(type="checkbox")
+                            span.slider.round
+            .col-lg-6.d-flex(style="background-color: #fff7f4; padding: 6rem 0")      
+                .col-lg-6.d-flex.justify-content-center
+                    img(src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTyMqoVtJqtYD3VsCdioGsBLNBm9fbHyXBqHnaT6rpI-MnaqaFb", style="width: 200px; height: 240px")
+                .col-lg-6
+                        .body-page-item
+                            h3 The joy of UX
+                            .body-page-item--production.mt-4.d-flex
+                                .body-page-item--production__text.d-flex
+                                    span.mr-1 By
+                                    p David Platt
+                            .body-page-item--price.d-flex.align-items-center.mt-2
+                                span.mr-3.price-new $29.75
+                                span.mr-4.price-old $32.90
+                            label.switch.mt-4
+                                input(type="checkbox")
+                                span.slider.round
+    
                
