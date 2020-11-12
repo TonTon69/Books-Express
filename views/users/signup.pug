@@ -1,32 +1,31 @@
 extends ../layouts/common
 block content
-    .position-relative.signup-mt-5
-        .signup
-            form.sign-up-form.signup-ml-5.text-center(action='#')
-                h2.title.mb-4 Sign up
-                .input-field
-                    i.fas.fa-user
-                    input(type='text', placeholder='Username')
-                .input-field
-                    i.fas.fa-envelope
-                    input(type='email', placeholder='Email')
-                .input-field
-                    i.fas.fa-lock
-                    input(type='password', placeholder='Password')
-                input.btn-sign-up(type='submit', value='Sign up')
-                p.social-text Or Sign up with social platforms
-                .social-media.justify-content-center
-                    a.social-icon(href='#')
-                        i.fab.fa-facebook-f
-                    a.social-icon(href='#')
-                        i.fab.fa-twitter
-                    a.social-icon(href='#')
-                        i.fab.fa-google
-                    a.social-icon(href='#')
-                        i.fab.fa-linkedin-in
-            .panel.right-panel.text-center.signup-ml-5
-                .content.text-light
-                    h3 You have an account?
-                    p If reading book is your hobby, please log in to view and buy them.
-                    button#sign-in-btn.btn.btn-outline-light.btn-sign-in Sign in
-                img(src='/images/undraw_press_play_bx2d.svg', alt='')
+    .signup
+        form.sign-up-form.text-center(action='#', style='width: 500px')
+            h2.title.mb-4 Sign up
+            .input-field
+                i.fas.fa-user
+                input(type='text', placeholder='Username')
+            .input-field
+                i.fas.fa-envelope
+                input(type='email', placeholder='Email')
+            .input-field
+                i.fas.fa-lock
+                input(type='password', placeholder='Password')
+            input.btn-sign-up(type='submit', value='Sign up')
+            p.social-text Or Sign up with social platforms
+            .social-media.justify-content-center
+                a.social-icon(href='#')
+                    i.fab.fa-facebook-f
+                a.social-icon(href='#')
+                    i.fab.fa-twitter
+                a.social-icon(href='#')
+                    i.fab.fa-google
+                a.social-icon(href='#')
+                    i.fab.fa-linkedin-in
+        .panel.right-panel.text-center.signup-ml-5
+            .content.text-light
+                h3 You have an account?
+                p If reading book is your hobby, please log in to view and buy them.
+                button#sign-in-btn.btn.btn-outline-light.btn-sign-in Sign in
+            img(src='/images/undraw_press_play_bx2d.svg', alt='')

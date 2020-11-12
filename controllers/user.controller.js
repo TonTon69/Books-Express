@@ -3,6 +3,7 @@ const users = [
   { id: 2, name: "Minh" },
   { id: 3, name: "Huynh" },
 ];
+const User = require("../models/user.model");
 
 module.exports.index = (req, res) => {
   res.render("users/index", {
@@ -19,6 +20,7 @@ module.exports.search = (req, res) => {
     users: matchedUsers,
   });
 };
+
 module.exports.signup = (req, res) => {
   res.render("users/signup");
 };
