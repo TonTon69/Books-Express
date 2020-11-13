@@ -18,13 +18,13 @@ input {
   left: 0;
   padding: 20px 50px;
   z-index: 1022;
-  background-color: transparent !important;
   transition: all 0.6s ease;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
-nav.sticky {
+nav.sticky,
+.nav-app {
   padding: 10px 50px;
   background-color: black !important;
 }
