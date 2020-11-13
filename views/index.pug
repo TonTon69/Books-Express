@@ -37,9 +37,9 @@ block index
                         label.switch.m-0
                             input(type="checkbox")
                             span.slider.round
-    .container-fluid
+    .container-fluid.p-0
         .row
-            .col-lg-6.d-flex(style="padding: 6rem 0")
+            .col-lg-6.d-flex(style="margin: 6rem 0")
                 .col-lg-6.d-flex.justify-content-center
                     img(src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKSFlnF2yPOf-UW0CtYGERvFAcrPrzcRAq6HNE4XLQ6oO3lzm5", style="width: 200px; height: 240px")
                 .col-lg-6
@@ -71,5 +71,18 @@ block index
                             label.switch.mt-4
                                 input(type="checkbox")
                                 span.slider.round
-    
+    .container-fluid(style="background-color: #f1fdfb")
+        .row
+            .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0")      
+                h2(style="font-weight: 600; color: #444") Top selling book
+                a(href="/")
+                    spand.d-flex.align-items-center(style="font-weight: 600; color: #35a290") View all
+                        i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #35a290")
                
+    .container-fluid
+        .row
+            .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0")      
+                h2(style="font-weight: 600; color: #444") Top Authors
+                a(href="/")
+                    spand.d-flex.align-items-center(style="font-weight: 600; color: #fb5533") View all
+                        i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #fb5533")

@@ -13,7 +13,9 @@ input {
 nav {
   background-color: black;
 }
-
+.row {
+  margin: 0;
+}
 .main-heading {
   width: 100%;
   height: 100vh;
@@ -222,6 +224,7 @@ nav {
   top: 14px;
   left: 56px;
   z-index: 2;
+  cursor: pointer;
 }
 .switch input {
   opacity: 0;
@@ -269,4 +272,65 @@ nav {
   -webkit-transform: translateX(130px);
   -ms-transform: translateX(130px);
   transform: translateX(130px);
+}
+
+/* Footer */
+.footer-subscribe input {
+  position: relative;
+  outline: none;
+  border-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 500px;
+  height: 44px;
+  padding: 0 24px;
+}
+.footer-subscribe button {
+  position: absolute;
+  right: 0;
+  width: 140px;
+  height: 44px;
+  outline: none;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fb5533;
+  color: #fff;
+}
+
+#navbardrop {
+  color: #743820;
+  background-color: #ffece5;
+  font-weight: 600;
+  width: 150px;
+  border-radius: 25px;
+  border: 0.5px solid #886251;
+}
+.dropdown-toggle::after {
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  border: none;
+  vertical-align: 0;
+  margin-left: 1.2rem;
+}
+.dropdown-menu {
+  width: 180px;
+  background-color: unset;
+  color: #743820;
+}
+a.dropdown-item:focus {
+  background-color: unset;
+}
+a.dropdown-item:hover {
+  background-color: #fff;
+}
+.footer-text span {
+  color: #743820;
+  font-size: 20px;
+  font-weight: 600;
+}
+.footer-text a {
+  color: #777;
+  font-size: 16px;
+  font-weight: 500;
 }
