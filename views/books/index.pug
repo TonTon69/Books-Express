@@ -8,7 +8,7 @@ block content
                 input(type="text", placeholder="Search...", name="name", class="form-control")
                 button(class="btn btn-primary ml-2") Search
     
-        .row
+        .row.mt-4
             each book in books
                 .card.mb-5.mr-4(style='width: 22rem')
                     a(href="/books/" + book.slug)

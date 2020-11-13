@@ -41,7 +41,7 @@ block index
         .row
             .col-lg-6.d-flex(style="margin: 6rem 0")
                 .col-lg-6.d-flex.justify-content-center
-                    img(src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKSFlnF2yPOf-UW0CtYGERvFAcrPrzcRAq6HNE4XLQ6oO3lzm5", style="width: 200px; height: 240px")
+                    img(src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKSFlnF2yPOf-UW0CtYGERvFAcrPrzcRAq6HNE4XLQ6oO3lzm5", style="width: 200px; height: 250px")
                 .col-lg-6
                     .body-page-item
                         h3 Don't Make Me Think
@@ -57,7 +57,7 @@ block index
                             span.slider.round
             .col-lg-6.d-flex(style="background-color: #fff7f4; padding: 6rem 0")      
                 .col-lg-6.d-flex.justify-content-center
-                    img(src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTyMqoVtJqtYD3VsCdioGsBLNBm9fbHyXBqHnaT6rpI-MnaqaFb", style="width: 200px; height: 240px")
+                    img(src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTyMqoVtJqtYD3VsCdioGsBLNBm9fbHyXBqHnaT6rpI-MnaqaFb", style="width: 200px; height: 250px")
                 .col-lg-6
                         .body-page-item
                             h3 The joy of UX
@@ -72,17 +72,26 @@ block index
                                 input(type="checkbox")
                                 span.slider.round
     .container-fluid(style="background-color: #f1fdfb")
-        .row
-            .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0")      
-                h2(style="font-weight: 600; color: #444") Top selling book
-                a(href="/")
-                    spand.d-flex.align-items-center(style="font-weight: 600; color: #35a290") View all
-                        i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #35a290")
-               
+        .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0 4rem 0")      
+            h2(style="font-weight: 600; color: #444") Top selling book
+            a(href="#")
+                spand.d-flex.align-items-center(style="font-weight: 600; color: #35a290") View all
+                    i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #35a290")
+        .container(style="padding: 0 0 6rem 0") 
+            .row
+                each book in books
+                    .col-lg-3.p-0
+                        img(src=book.image, style="width: 200px; height: 250px; object-fit: cover")
+                        h5.mt-4=book.name
+                        .body-page-item--production__text.d-flex
+                            span.mr-1 By
+                            p=book.author
+                        .body-page-item--price.d-flex.align-items-center.mt-2
+                            span.mr-3.price-new(style="color: #35a290")=book.price_new
+                            span.mr-4.price-old=book.price_old
     .container-fluid
-        .row
-            .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0")      
-                h2(style="font-weight: 600; color: #444") Top Authors
-                a(href="/")
-                    spand.d-flex.align-items-center(style="font-weight: 600; color: #fb5533") View all
-                        i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #fb5533")
+        .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0")      
+            h2(style="font-weight: 600; color: #444") Top Authors
+            a(href="#")
+                spand.d-flex.align-items-center(style="font-weight: 600; color: #fb5533") View all
+                    i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #fb5533")
