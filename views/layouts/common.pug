@@ -9,7 +9,7 @@ html
         script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js', integrity='sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx', crossorigin='anonymous')
     body
         .app
-            nav.navbar.navbar-expand-lg.justify-content-between.fixed-top
+            nav.navbar.navbar-expand-lg.navbar-transparent.justify-content-between
                 .navbar-nav
                     a.nav-item.nav-link.text-light(href='/') Home 
                     a.nav-item.nav-link.text-light(href='/books') Books
@@ -69,4 +69,6 @@ html
                                 a(href="#") Contact Us
                                 a.mt-2(href="#") Find My Product
                                 a.mt-2(href="#") FAQ
-
+        
+        script(type="text/javascript", src="js/main.min.js")
+            
