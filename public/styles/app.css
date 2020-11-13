@@ -26,12 +26,9 @@ input {
 }
 nav.sticky {
   padding: 10px 50px;
-  background-color: rgba(255, 255, 255, 0.8) !important;
+  background-color: black !important;
 }
-nav.sticky .nav-link,
-nav.sticky .text-light {
-  color: #111 !important;
-}
+
 .container-fluid {
   -webkit-user-select: none;
   -moz-user-select: none;
