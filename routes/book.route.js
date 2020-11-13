@@ -8,5 +8,5 @@ router.get("/create", controller.create);
 router.post("/create", controller.postCreate);
 router.get("/:slug", controller.show);
 router.get("/:id/edit", controller.edit);
-router.put("/:id", controller.update);
+router.post("/:id", controller.update);
 module.exports = router;

@@ -4,15 +4,15 @@ block content
         table.table
             tr
                 th Name
-                th Price
-                th Created At
+                th Price Old
+                th Price New
                 th Actions
                 th
             each book in books
                 tr
                     td=book.name
-                    td=book.price
-                    td=book.createdAt
+                    td=book.price_old
+                    td=book.price_new
                     td
                         a.btn.btn-light(href="/books/" + book.slug) View
                     td
