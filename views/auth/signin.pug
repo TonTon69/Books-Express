@@ -5,7 +5,7 @@ block content
             .content
                 h3 Do you not have an account?
                 p If reading book is your hobby, please log up to view and buy them.
-                a(href="/users/signup").btn Sign up
+                a(href="/users/signup").btn.mb-5 Sign up
             img(src='/images/undraw_maker_launch_crhe.svg', alt='')
         form.sign-in-form.text-center(action="/auth/signin", method="POST", style='width: 500px')           
             h2.title.mb-4 Sign in  
@@ -19,7 +19,7 @@ block content
                 i.fas.fa-lock
                 input(type='password', placeholder='Password', name="password", value=values ? values.password : '')
             
-            button.btn-sign-in(type='submit', value='Sign up') Sign in
+            button.btn-sign-in(type='submit') Sign in
             
             p.social-text Or Sign up with social platforms
             .social-media.justify-content-center
