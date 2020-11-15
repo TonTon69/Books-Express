@@ -55,7 +55,6 @@ nav.sticky,
   font-size: 1.6rem;
   font-weight: 700;
 }
-
 .card a {
   position: relative;
   overflow: hidden;
@@ -170,6 +169,14 @@ nav.sticky,
   border-radius: 50%;
   z-index: -1;
 }
+.panel.right-panel {
+  position: relative;
+}
+.panel.right-panel .content {
+  position: absolute;
+  top: 0;
+  right: -150px;
+}
 .panel h3 {
   font-weight: 600;
   line-height: 1;
@@ -180,6 +187,9 @@ nav.sticky,
   padding: 0.7rem 0;
 }
 .panel.right-panel img {
+  position: absolute;
+  bottom: -80px;
+  right: 0;
   width: 90%;
 }
 
