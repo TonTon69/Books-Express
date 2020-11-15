@@ -60,3 +60,8 @@ module.exports.update = (req, res, next) => {
     .then(() => res.redirect("/shop/stored/books"))
     .catch(next);
 };
+module.exports.delete = (req, res, next) => {
+  Book.delete({ _id: req.params.id })
+    .then(() => res.redirect("back"))
+    .catch(next);
+};

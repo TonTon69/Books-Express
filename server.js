@@ -4,8 +4,10 @@ const express = require("express");
 const port = 3000;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+
 const app = express();
 const Book = require("./models/book.model");
+
 // Connect db
 const { MONGOURI } = require("./db");
 mongoose.connect(MONGOURI, {
@@ -33,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
 
+// Home Route
 app.get("/", function (req, res, next) {
   Book.find({})
     .then((books) => {

@@ -1,18 +1,23 @@
 extends ../layouts/common
 block content
     .signup
-        form.sign-up-form.text-center(action='#', style='width: 500px')
+        form.sign-up-form.text-center(action="/users/signup", method="POST", style='width: 500px')
             h2.title.mb-4 Sign up
+            if errors
+                each error in errors
+                    .alert.alert-danger= error
             .input-field
                 i.fas.fa-user
-                input(type='text', placeholder='Username')
+                input(type='text', placeholder='Name', name="name", value=values ? values.name : '')
             .input-field
                 i.fas.fa-envelope
-                input(type='email', placeholder='Email')
+                input(type='email', placeholder='Email', name="email", value=values ? values.email : '')                    
             .input-field
                 i.fas.fa-lock
-                input(type='password', placeholder='Password')
-            input.btn-sign-up(type='submit', value='Sign up')
+                input(type='password', placeholder='Password', name="password", value=values ? values.password : '')
+            
+            button.btn-sign-up(type='submit', value='Sign up') Sign up
+            
             p.social-text Or Sign up with social platforms
             .social-media.justify-content-center
                 a.social-icon(href='#')

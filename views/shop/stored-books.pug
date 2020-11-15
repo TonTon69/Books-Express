@@ -1,6 +1,7 @@
 extends ../layouts/common
 block content
-        h1.mb-4 My books
+    form(method="post")
+        h1.mb-5 My books
         table.table
             tr
                 th Name
@@ -17,7 +18,27 @@ block content
                         a.btn.btn-light(href="/books/" + book.slug) View
                     td
                         a.btn.btn-link(href="/books/" + book._id + "/edit") Edit
-                        a.btn.btn-link(href="/books/" + book.id) Delete
-        .d-flex.align-items-center.justify-content-center
-            span You don't have any book?
-            a.btn.btn-link(href="/books/create") Create book
+                        a.btn.btn-link(href='', data-toggle='modal', data-id=book._id, data-target='#delete-book-modal') Delete
+            else
+                .d-flex.align-items-center.justify-content-center
+                    span You don't have any book?
+                    a.btn.btn-link(href="/books/create") Create book
+        
+        .modal#delete-book-modal(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        h5.modal-title Delete book???
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    .modal-body
+                        p Are you sure you want to delete this book?
+                    .modal-footer
+                        button#btn-delete-book.btn.btn-primary(type='button') Delete
+                        button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
+        
+    //- Delete hidden form
+    form(method="POST", name="delete-book-form")
+    
+
+       

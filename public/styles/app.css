@@ -28,15 +28,13 @@ nav.sticky,
   padding: 10px 50px;
   background-color: black !important;
 }
-
-.container-fluid {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+.table td {
+  vertical-align: unset;
 }
 .row {
   margin: 0;
 }
+
 .main-heading {
   width: 100%;
   height: 100vh;
@@ -156,6 +154,9 @@ nav.sticky,
 }
 .btn-sign-up:hover {
   background-color: #fb5533;
+}
+.btn-sign-up:focus {
+  outline: none;
 }
 .signup:before {
   content: "";
@@ -357,11 +358,7 @@ a.dropdown-item:focus {
 a.dropdown-item:hover {
   background-color: #fff;
 }
-footer {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
+
 .footer-text span {
   color: #743820;
   font-size: 20px;
