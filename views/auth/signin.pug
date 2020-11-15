@@ -1,14 +1,17 @@
 extends ../layouts/common
 block content
-    .signup
-        form.sign-up-form.text-center(action="/users/signup", method="POST", style='width: 500px')
-            h2.title.mb-4 Sign up     
+    .signin
+        .panel.left-panel.text-center
+            .content
+                h3 Do you not have an account?
+                p If reading book is your hobby, please log up to view and buy them.
+                a(href="/users/signup").btn Sign up
+            img(src='/images/undraw_maker_launch_crhe.svg', alt='')
+        form.sign-in-form.text-center(action="/auth/signin", method="POST", style='width: 500px')           
+            h2.title.mb-4 Sign in  
             if errors   
                 each error in errors
-                    p.text-danger= error
-            .input-field
-                i.fas.fa-user
-                input(type='text', placeholder='Name', name="name", value=values ? values.name : '')               
+                    p.text-danger= error      
             .input-field
                 i.fas.fa-envelope
                 input(type='email', placeholder='Email', name="email", value=values ? values.email : '')                    
@@ -16,7 +19,7 @@ block content
                 i.fas.fa-lock
                 input(type='password', placeholder='Password', name="password", value=values ? values.password : '')
             
-            button.btn-sign-up(type='submit', value='Sign up') Sign up
+            button.btn-sign-in(type='submit', value='Sign up') Sign in
             
             p.social-text Or Sign up with social platforms
             .social-media.justify-content-center
@@ -28,9 +31,3 @@ block content
                     i.fab.fa-google
                 a.social-icon(href='#')
                     i.fab.fa-linkedin-in
-        .panel.right-panel.text-center
-            .content
-                h3 You have an account?
-                p If reading book is your hobby, please log in to view and buy them.
-                a(href="/auth/signin").btn.mb-5 Sign in
-            img(src='/images/undraw_press_play_bx2d.svg', alt='')

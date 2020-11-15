@@ -23,8 +23,9 @@ mongoose.connection.on("error", () => {
 });
 
 // Router
-const userRouter = require("./routes/user.route");
 const bookRouter = require("./routes/book.route");
+const userRouter = require("./routes/user.route");
+const authRouter = require("./routes/auth.route");
 const shopRouter = require("./routes/shop.route");
 
 app.set("view engine", "pug");
@@ -45,8 +46,10 @@ app.get("/", function (req, res, next) {
     })
     .catch(next);
 });
-app.use("/users", userRouter);
+
 app.use("/books", bookRouter);
+app.use("/users", userRouter);
+app.use("/auth", authRouter);
 app.use("/shop", shopRouter);
 
 app.listen(port, () => {

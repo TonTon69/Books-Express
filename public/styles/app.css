@@ -75,9 +75,11 @@ nav.sticky,
 .signup-ml-5 {
   margin-left: 9rem !important;
 }
-.signup {
+.signup,
+.signin {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  min-height: 100vh;
 }
 .title {
   font-size: 2.2rem;
@@ -137,47 +139,42 @@ nav.sticky,
   color: #fb5533;
   border-color: #fb5533;
 }
-.btn-sign-in,
-.btn-sign-up {
+.btn-sign-up,
+.btn-sign-in {
   width: 150px;
   height: 49px;
   font-weight: 600;
   border-radius: 49px;
   text-transform: uppercase;
-}
-.btn-sign-up {
   background-color: #fa6345;
   border: none;
   outline: none;
   color: #fff;
   margin: 10px 0;
 }
-.btn-sign-up:hover {
-  background-color: #fb5533;
+.panel.right-panel .content a,
+.panel.left-panel .content a {
+  padding: 10px 40px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
-.btn-sign-up:focus {
+.btn-sign-up:hover,
+.btn-sign-in:hover,
+.panel.right-panel .content a:hover,
+.panel.left-panel .content a:hover {
+  color: #fff;
+  background-color: #fb5533;
+  border: 1px solid #fb5533;
+}
+.btn-sign-up:focus,
+.btn-sign-in:focus,
+.panel.right-panel .content a:focus,
+.panel.left-panel .content a:focus {
   outline: none;
+  box-shadow: none;
 }
-.signup:before {
-  content: "";
-  position: absolute;
-  height: 2000px;
-  width: 2000px;
-  top: -10%;
-  left: 60%;
-  transform: translateY(-50%);
-  background-color: #fb5533;
-  border-radius: 50%;
-  z-index: -1;
-}
-.panel.right-panel {
-  position: relative;
-}
-.panel.right-panel .content {
-  position: absolute;
-  top: 0;
-  right: -150px;
-}
+
 .panel h3 {
   font-weight: 600;
   line-height: 1;
@@ -187,10 +184,8 @@ nav.sticky,
   font-size: 0.95rem;
   padding: 0.7rem 0;
 }
-.panel.right-panel img {
-  position: absolute;
-  bottom: -80px;
-  right: 0;
+.panel.right-panel img,
+.panel.left-panel img {
   width: 90%;
 }
 
