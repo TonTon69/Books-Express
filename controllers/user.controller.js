@@ -1,5 +1,5 @@
 const User = require("../models/user.model");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 module.exports.index = (req, res) => {};
 
@@ -10,22 +10,37 @@ module.exports.signup = (req, res) => {
 };
 
 module.exports.postCreate = (req, res, next) => {
-  const { name, email, password } = req.body;
-
-  User.findOne({ email: email })
+  User.find({ email: req.body.email })
+    .exec()
     .then((user) => {
-      if (!user) {
-        User.create({
-          name: name,
-          email: email,
-          password: password,
-        }).then(() => {
-          res.redirect("/users/signin");
-        });
-      } else {
+      if (user.length >= 1) {
         res.render("users/signup", {
           errors: ["This email already exists!"],
           values: req.body,
+        });
+      } else {
+        bcrypt.hash(req.body.password, 10, (err, hash) => {
+          if (err) {
+            return res.status(500).json({
+              error: err,
+            });
+          } else {
+            const user = new User({
+              name: req.body.name,
+              email: req.body.email,
+              password: hash,
+            });
+            user
+              .save()
+              .then(() => {
+                res.render("auth/signin");
+              })
+              .catch((err) => {
+                res.status(500).json({
+                  error: err,
+                });
+              });
+          }
         });
       }
     })

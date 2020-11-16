@@ -1,41 +1,36 @@
 const User = require("../models/user.model");
+const bcrypt = require("bcrypt");
 
 module.exports.signin = (req, res) => {
   res.render("auth/signin");
 };
 
 module.exports.postSignin = (req, res, next) => {
-  const { email, password } = req.body;
-  var errors = [];
-  if (!email) {
-    errors.push("Please provide your email.");
-  }
-  if (!password) {
-    errors.push("Please provide your password.");
-  }
-  if (errors.length) {
-    res.render("auth/signin", {
-      errors: errors,
-      values: req.body,
-    });
-    return;
-  }
-  User.findOne({ email: email })
+  User.find({ email: req.body.email })
+    .exec()
     .then((user) => {
-      if (!user) {
+      if (user.length < 1) {
         res.render("auth/signin", {
-          errors: ["Email does not exist!"],
+          errors: ["Your email entered is incorrect!"],
           values: req.body,
         });
-      }
-      if (user.password !== password) {
-        res.render("auth/signin", {
-          errors: ["Your password entered is incorrect!"],
-          values: req.body,
+      } else {
+        bcrypt.compare(req.body.password, user[0].password, (err, result) => {
+          if (err) {
+            return res.render("auth/signin", {
+              errors: ["Auth failed!"],
+              values: req.body,
+            });
+          }
+          if (result) {
+            return res.redirect("/");
+          }
+          res.render("auth/signin", {
+            errors: ["Your password entered is incorrect!"],
+            values: req.body,
+          });
         });
-        return;
       }
-      res.redirect("/");
     })
     .catch(next);
 };
