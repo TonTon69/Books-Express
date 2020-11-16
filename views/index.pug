@@ -22,18 +22,21 @@ block index
     .container-fluid(style="background-color: #fff7f4; padding: 6rem 0")
         .row  
             .col-lg-6.d-flex.justify-content-center
-                img(src="images/design.jpg", style="width: 320px;")
+                img(src="images/book-top/anh-chinh-la-thanh-xuan-cua-em.jpg", style="width: 340px; height: 460px; object-fit: cover")
             .col-lg-6
                 .body-page-item
-                    h6 the business of
-                    h1 Design
+                    h6 Anh chinh la
+                    h1 THANN XUAN cua em
+                    .mt-4.mb-5
+                        p.m-0 During that good time, you know why it is called youthful? 
+                        p.m-0 Because then, you appeared in my life.
                     .body-page-item--production.mt-4.mb-2.d-flex
                         .body-page-item--production__text
                             span Author
-                            p Keith Granet
+                            p Ha Vu
                         .body-page-item--production__text
                             span Type
-                            p Design thinking
+                            p Love
                         .body-page-item--production__text
                             span Layout
                             p Printed & PDF
@@ -46,7 +49,7 @@ block index
                             <i class="fas fa-star"></i>
                         span 4.1/6900 Reviews
                     .body-page-item--price.d-flex.align-items-center.mt-5
-                        span.mr-4 $32.78 
+                        span.mr-4 $4.78 
                         label.switch.m-0
                             input(type="checkbox")
                             span.slider.round
@@ -54,33 +57,33 @@ block index
         .row
             .col-lg-6.d-flex(style="margin: 6rem 0")
                 .col-lg-6.d-flex.justify-content-center
-                    img(src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTKSFlnF2yPOf-UW0CtYGERvFAcrPrzcRAq6HNE4XLQ6oO3lzm5", style="width: 200px; height: 250px")
+                    img(src="images/book-top/tra-hoa-nu.jpg", style="width: 220px; height: 280px; object-fit: cover")
                 .col-lg-6
                     .body-page-item
-                        h3 Don't Make Me Think
+                        h3 Tra Hoa Nu
                         .body-page-item--production.mt-4.d-flex
                             .body-page-item--production__text.d-flex
                                 span.mr-1 By
-                                p Steve Krug
+                                p Alexandre Dumas con
                         .body-page-item--price.d-flex.align-items-center.mt-2
-                            span.mr-3.price-new $32.75
-                            span.mr-4.price-old $37.90
+                            span.mr-3.price-new $3.75
+                            span.mr-4.price-old $4.90
                         label.switch.mt-4
                             input(type="checkbox")
                             span.slider.round
             .col-lg-6.d-flex(style="background-color: #fff7f4; padding: 6rem 0")      
                 .col-lg-6.d-flex.justify-content-center
-                    img(src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTyMqoVtJqtYD3VsCdioGsBLNBm9fbHyXBqHnaT6rpI-MnaqaFb", style="width: 200px; height: 250px")
+                    img(src="images/book-top/hen-em-noi-cafe-cupcake.jpg", style="width: 220px; height: 280px; object-fit: cover")
                 .col-lg-6
                         .body-page-item
-                            h3 The joy of UX
+                            h3 Hen em noi cafe cupcake
                             .body-page-item--production.mt-4.d-flex
                                 .body-page-item--production__text.d-flex
                                     span.mr-1 By
-                                    p David Platt
+                                    p Jenny Colgan
                             .body-page-item--price.d-flex.align-items-center.mt-2
-                                span.mr-3.price-new $29.75
-                                span.mr-4.price-old $32.90
+                                span.mr-3.price-new $3.90
+                                span.mr-4.price-old $4.75
                             label.switch.mt-4
                                 input(type="checkbox")
                                 span.slider.round
@@ -95,7 +98,7 @@ block index
                 each book in books
                     .col-lg-3.p-0
                         a(href="/books/" + book.slug)
-                            img(src=book.image, style="width: 200px; height: 250px; object-fit: cover")
+                            img(src=book.image, style="width: 220px; height: 280px; object-fit: cover")
                             h5.mt-4(style="color: #518279; font-weight: 600")=book.name
                         .body-page-item--production__text.d-flex
                             span.mr-1 By
@@ -104,8 +107,27 @@ block index
                             span.mr-3.price-new(style="color: #35a290")=book.price_new
                             span.mr-4.price-old=book.price_old
     .container-fluid
-        .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0")      
+        .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0 4rem 0")      
             h2(style="font-weight: 600; color: #444") Top Authors
             a(href="#")
                 spand.d-flex.align-items-center(style="font-weight: 600; color: #fb5533") View all
                     i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #fb5533")
+        .container.d-flex.text-center.justify-content-center(style="padding: 0 0 8rem 0") 
+            .mr-4.ml-4
+                img(src="https://i.pinimg.com/736x/8d/06/4c/8d064c41d40075d779e3e4f56e69acfb.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                span.d-block.mt-4(style="font-weight: 600") Ha Vu
+            .mr-4.ml-4
+                img(src="https://i.pinimg.com/originals/c4/a0/87/c4a087db9ff597073012d855dcf37013.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                span.d-block.mt-4(style="font-weight: 600") Takuji Ichikawa
+            .mr-4.ml-4
+                img(src="https://2.bp.blogspot.com/-5taiiiTe5NQ/TfocUlnHZ1I/AAAAAAAAApQ/5_wuav7OHvQ/s1600/az.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                span.d-block.mt-4(style="font-weight: 600") Jenny Colgan
+            .mr-4.ml-4
+                img(src="https://img.wallpapersafari.com/tablet/768/1024/0/32/sGWb4f.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                span.d-block.mt-4(style="font-weight: 600") Dale Carnegie
+            .mr-4.ml-4
+                img(src="https://i.pinimg.com/736x/d4/38/aa/d438aa10fa04519345fc570d58c3d82e.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                span.d-block.mt-4(style="font-weight: 600") Setup
+            .mr-4.ml-4
+                img(src="https://pm1.narvii.com/7537/d726246d71d4f870ca28807fa027f4aa6d3a84dcr1-1200-1933v2_uhq.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                span.d-block.mt-4(style="font-weight: 600") Pham Huy Hoang

@@ -198,7 +198,7 @@ nav.sticky,
 }
 .body-page-item h1 {
   color: #743820;
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   letter-spacing: 3px;
 }
@@ -297,6 +297,7 @@ nav.sticky,
 .switch input:focus + .slider {
   box-shadow: 0 0 1px #fb5533;
 }
+
 .switch input:checked + .slider:before {
   -webkit-transform: translateX(130px);
   -ms-transform: translateX(130px);
