@@ -61,7 +61,7 @@ module.exports.update = (req, res, next) => {
     .catch(next);
 };
 module.exports.delete = (req, res, next) => {
-  Book.delete({ _id: req.params.id })
+  Book.deleteOne({ _id: req.params.id })
     .then(() => res.redirect("back"))
     .catch(next);
 };

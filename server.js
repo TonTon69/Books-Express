@@ -4,7 +4,7 @@ const express = require("express");
 const port = 3000;
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-
+const methodOverride = require("method-override");
 const app = express();
 const Book = require("./models/book.model");
 
@@ -35,6 +35,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
+
+app.use(methodOverride("_method"));
 
 // Home Route
 app.get("/", function (req, res, next) {
