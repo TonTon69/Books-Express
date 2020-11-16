@@ -90,22 +90,23 @@ block index
     .container-fluid(style="background-color: #f1fdfb")
         .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0 4rem 0")      
             h2(style="font-weight: 600; color: #444") Top selling book
-            a(href="#")
+            a(href="/books")
                 spand.d-flex.align-items-center(style="font-weight: 600; color: #35a290") View all
                     i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #35a290")
         .container(style="padding: 0 0 6rem 0") 
             .row
                 each book in books
-                    .col-lg-3.p-0
-                        a(href="/books/" + book.slug)
-                            img(src=book.image, style="width: 220px; height: 280px; object-fit: cover")
-                            h5.mt-4(style="color: #518279; font-weight: 600")=book.name
-                        .body-page-item--production__text.d-flex
-                            span.mr-1 By
-                            p=book.author
-                        .body-page-item--price.d-flex.align-items-center.mt-2
-                            span.mr-3.price-new(style="color: #35a290")=book.price_new
-                            span.mr-4.price-old=book.price_old
+                    .col-lg-3.p-0.mb-5
+                        .cart
+                            a(href="/books/" + book.slug)
+                                img(src=book.image, style="width: 220px; height: 280px; object-fit: cover")
+                                h5.mt-4(style="color: #518279; font-weight: 600")=book.name
+                            .body-page-item--production__text.d-flex
+                                span.mr-1 By
+                                p=book.author
+                            .body-page-item--price.d-flex.align-items-center.mt-2
+                                span.mr-3.price-new(style="color: #35a290")=book.price_new
+                                span.mr-4.price-old=book.price_old
     .container-fluid
         .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0 4rem 0")      
             h2(style="font-weight: 600; color: #444") Top Authors
@@ -114,20 +115,20 @@ block index
                     i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #fb5533")
         .container.d-flex.text-center.justify-content-center(style="padding: 0 0 8rem 0") 
             .mr-4.ml-4
-                img(src="https://i.pinimg.com/736x/8d/06/4c/8d064c41d40075d779e3e4f56e69acfb.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                img(src="images/author-top/1.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
                 span.d-block.mt-4(style="font-weight: 600") Ha Vu
             .mr-4.ml-4
-                img(src="https://i.pinimg.com/originals/c4/a0/87/c4a087db9ff597073012d855dcf37013.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                img(src="images/author-top/2.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
                 span.d-block.mt-4(style="font-weight: 600") Takuji Ichikawa
             .mr-4.ml-4
-                img(src="https://2.bp.blogspot.com/-5taiiiTe5NQ/TfocUlnHZ1I/AAAAAAAAApQ/5_wuav7OHvQ/s1600/az.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                img(src="images/author-top/3.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
                 span.d-block.mt-4(style="font-weight: 600") Jenny Colgan
             .mr-4.ml-4
-                img(src="https://img.wallpapersafari.com/tablet/768/1024/0/32/sGWb4f.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                img(src="images/author-top/4.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
                 span.d-block.mt-4(style="font-weight: 600") Dale Carnegie
             .mr-4.ml-4
-                img(src="https://i.pinimg.com/736x/d4/38/aa/d438aa10fa04519345fc570d58c3d82e.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                img(src="images/author-top/5.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
                 span.d-block.mt-4(style="font-weight: 600") Setup
             .mr-4.ml-4
-                img(src="https://pm1.narvii.com/7537/d726246d71d4f870ca28807fa027f4aa6d3a84dcr1-1200-1933v2_uhq.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                img(src="images/author-top/6.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
                 span.d-block.mt-4(style="font-weight: 600") Pham Huy Hoang
