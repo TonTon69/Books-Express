@@ -9,9 +9,18 @@ block navbar_home
             a.nav-item.nav-link.text-light.mr-5(href='/books') Books
             a.nav-item.nav-link.text-light.mr-5(href='/') Search
             a.nav-item.nav-link.text-light.mr-5(href='/') Contact
-        .navbar-nav
-            a.nav-item.nav-link.text-light(href='/auth/signin') Sign in
-            a.nav-item.nav-link.text-light(href='/users/signup') Sign up
+        if user 
+            .user.d-flex.align-items-center
+                p.m-0.mr-3.text-light= user.name
+                img(src="images/author-top/1.jpg", style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover")
+                .user-menu
+                    a(href="") Settings
+                    hr
+                    a(href="/auth/logout") Log out
+        else
+            .navbar-nav
+                a.nav-item.nav-link.text-light(href='/auth/signin') Sign in
+                a.nav-item.nav-link.text-light(href='/users/signup') Sign up
 block index
     header.main-heading.d-flex.align-items-center
         .container

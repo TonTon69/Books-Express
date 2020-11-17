@@ -7,7 +7,9 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const app = express();
+
 const Book = require("./models/book.model");
+const User = require("./models/user.model");
 
 // Connect db
 const { MONGOURI } = require("./db");
@@ -43,9 +45,20 @@ app.use(methodOverride("_method"));
 app.get("/", function (req, res, next) {
   Book.find({})
     .then((books) => {
-      res.render("index", {
-        books: books,
-      });
+      User.findOne({ _id: req.signedCookies.userId })
+        .then((user) => {
+          if (user) {
+            res.locals.user = user;
+            res.render("index", {
+              books: books,
+            });
+          } else {
+            res.render("index", {
+              books: books,
+            });
+          }
+        })
+        .catch(next);
     })
     .catch(next);
 });

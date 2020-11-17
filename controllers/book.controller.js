@@ -1,11 +1,23 @@
 const Book = require("../models/book.model");
+const User = require("../models/user.model");
 
 module.exports.index = (req, res, next) => {
   Book.find({})
     .then((books) => {
-      res.render("books/index", {
-        books: books,
-      });
+      User.findOne({ _id: req.signedCookies.userId })
+        .then((user) => {
+          if (user) {
+            res.locals.user = user;
+            res.render("books", {
+              books: books,
+            });
+          } else {
+            res.render("books", {
+              books: books,
+            });
+          }
+        })
+        .catch(next);
     })
     .catch(next);
 };

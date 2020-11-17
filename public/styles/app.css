@@ -72,6 +72,42 @@ img {
   position: absolute;
   bottom: 0;
 }
+/* Hover user menu */
+.user {
+  position: relative;
+  cursor: pointer;
+}
+.user-menu {
+  position: absolute;
+  top: 55px;
+  right: -10px;
+  width: 200px;
+  background-color: #fff;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.17);
+  -moz-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.17);
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.17);
+  /* display: none; */
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+.user-menu::before {
+  content: "";
+  position: absolute;
+  top: -46px;
+  right: 5px;
+  border-color: transparent transparent #fff transparent;
+  border-width: 32px 23px;
+  border-style: solid;
+}
+.user:hover .user-menu {
+  /* display: block; */
+  opacity: 1;
+}
+.user-menu a {
+  display: block;
+  margin: 20px;
+}
 
 /* Sign up - Sign in */
 .signup-ml-5 {

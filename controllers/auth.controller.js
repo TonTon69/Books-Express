@@ -37,3 +37,8 @@ module.exports.postSignin = (req, res, next) => {
     })
     .catch(next);
 };
+
+module.exports.logout = (req, res) => {
+  res.clearCookie("userId");
+  res.redirect("/");
+};
