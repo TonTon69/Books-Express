@@ -28,7 +28,9 @@ module.exports.postSignin = (req, res, next) => {
               values: req.body,
             });
           }
-          res.cookie("userId", user[0].id);
+          res.cookie("userId", user[0].id, {
+            signed: true,
+          });
           res.redirect("/");
         });
       }

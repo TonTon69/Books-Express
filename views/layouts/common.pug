@@ -20,9 +20,12 @@ html
                         a.nav-item.nav-link.text-light.mr-5(href='/books') Books
                         a.nav-item.nav-link.text-light.mr-5(href='/') Search
                         a.nav-item.nav-link.text-light.mr-5(href='/') Contact
-                    .navbar-nav
-                        a.nav-item.nav-link.text-light(href='/auth/signin') Sign in
-                        a.nav-item.nav-link.text-light(href='/users/signup') Sign up
+                    if user
+                        p.m-0.text-light= user.name
+                    else
+                        .navbar-nav
+                            a.nav-item.nav-link.text-light(href='/auth/signin') Sign in
+                            a.nav-item.nav-link.text-light(href='/users/signup') Sign up
                 
                 .container.pb-5.mt-5.mb-5.p-0
                     block content
