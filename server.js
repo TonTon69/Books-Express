@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const port = 3000;
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const app = express();
@@ -33,7 +34,7 @@ app.set("views", "./views");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(cookieParser());
 app.use(express.static("public"));
 
 app.use(methodOverride("_method"));

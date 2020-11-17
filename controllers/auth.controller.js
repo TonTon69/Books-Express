@@ -22,13 +22,14 @@ module.exports.postSignin = (req, res, next) => {
               values: req.body,
             });
           }
-          if (result) {
-            return res.redirect("/");
+          if (!result) {
+            return res.render("auth/signin", {
+              errors: ["Your password entered is incorrect!"],
+              values: req.body,
+            });
           }
-          res.render("auth/signin", {
-            errors: ["Your password entered is incorrect!"],
-            values: req.body,
-          });
+          res.cookie("userId", user[0].id);
+          res.redirect("/");
         });
       }
     })
