@@ -26,17 +26,20 @@ module.exports.search = (req, res, next) => {
   Book.find({})
     .sort({ _id: -1 })
     .then((books) => {
+      const matchedBooks = books.filter((book) => {
+        return (
+          book.name.toLowerCase().indexOf(req.query.name.toLowerCase()) !== -1
+        );
+      });
       User.findOne({ _id: req.signedCookies.userId })
         .then((user) => {
           if (user) {
             res.locals.user = user;
-            const matchedBooks = books.filter((book) => {
-              return (
-                book.name
-                  .toLowerCase()
-                  .indexOf(req.query.name.toLowerCase()) !== -1
-              );
+            res.render("books/index", {
+              books: matchedBooks,
+              values: req.body,
             });
+          } else {
             res.render("books/index", {
               books: matchedBooks,
               values: req.body,
