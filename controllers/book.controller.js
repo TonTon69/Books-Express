@@ -23,17 +23,27 @@ module.exports.index = (req, res, next) => {
 };
 
 module.exports.search = (req, res, next) => {
-  Book.find()
+  Book.find({})
     .sort({ _id: -1 })
     .then((books) => {
-      const matchedBooks = books.filter((book) => {
-        return (
-          book.name.toLowerCase().indexOf(req.query.name.toLowerCase()) !== -1
-        );
-      });
-      res.render("books/index", {
-        books: matchedBooks,
-      });
+      User.findOne({ _id: req.signedCookies.userId })
+        .then((user) => {
+          if (user) {
+            res.locals.user = user;
+            const matchedBooks = books.filter((book) => {
+              return (
+                book.name
+                  .toLowerCase()
+                  .indexOf(req.query.name.toLowerCase()) !== -1
+              );
+            });
+            res.render("books/index", {
+              books: matchedBooks,
+              values: req.body,
+            });
+          }
+        })
+        .catch(next);
     });
 };
 
