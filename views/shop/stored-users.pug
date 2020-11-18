@@ -1,0 +1,15 @@
+extends ../layouts/common
+block content
+    h1.mb-5 My users
+    table.table
+        tr
+            th Name
+            th Email
+            th Role
+            th Created At
+        each user in users
+            tr
+                td=user.name
+                td=user.email
+                td=user.role
+                td=user.createdAt

@@ -47,7 +47,8 @@ module.exports.search = (req, res, next) => {
           }
         })
         .catch(next);
-    });
+    })
+    .catch(next);
 };
 
 module.exports.create = (req, res) => {

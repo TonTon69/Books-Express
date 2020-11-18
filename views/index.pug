@@ -17,23 +17,26 @@ block navbar_home
                     if user.role
                         a.text-dark(href="/books/create") 
                             i.fas.fa-plus.mr-3
-                            span Create book
+                            span Create Book
                         a.text-dark(href="/shop/stored/books") 
                             i.fas.fa-list.mr-3
-                            span My books
+                            span My Books
+                        a.text-dark(href="/shop/stored/users") 
+                            i.fas.fa-list.mr-3
+                            span My Users
                         a.text-dark(href="") 
                             i.fas.fa-cog.mr-3
                             span Settings
                         a.text-dark(href="/auth/logout") 
                             i.fas.fa-sign-out-alt.mr-3
-                            span Log out
+                            span Log Out
                     else
                         a.text-dark(href="") 
                             i.fas.fa-cog.mr-3
                             span Settings
                         a.text-dark(href="/auth/logout") 
                             i.fas.fa-sign-out-alt.mr-3
-                            span Log out
+                            span Log Out
         else
             .navbar-nav
                 a.nav-item.nav-link.text-light(href='/auth/signin') Sign in
