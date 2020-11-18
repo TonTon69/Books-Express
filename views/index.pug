@@ -12,15 +12,28 @@ block navbar_home
         if user 
             .user.d-flex.align-items-center
                 p.m-0.mr-3.text-light= user.name
-                img(src="images/author-top/1.jpg", style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover")
+                img(src="/images/author-top/1.jpg", style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover")
                 .user-menu
-                    a.text-dark(href="") 
-                        i.fas.fa-cog.mr-3
-                        span Settings
-                    hr
-                    a.text-dark(href="/auth/logout") 
-                        i.fas.fa-sign-out-alt.mr-3
-                        span Log out
+                    if user.role
+                        a.text-dark(href="/books/create") 
+                            i.fas.fa-plus.mr-3
+                            span Create book
+                        a.text-dark(href="/shop/stored/books") 
+                            i.fas.fa-list.mr-3
+                            span My books
+                        a.text-dark(href="") 
+                            i.fas.fa-cog.mr-3
+                            span Settings
+                        a.text-dark(href="/auth/logout") 
+                            i.fas.fa-sign-out-alt.mr-3
+                            span Log out
+                    else
+                        a.text-dark(href="") 
+                            i.fas.fa-cog.mr-3
+                            span Settings
+                        a.text-dark(href="/auth/logout") 
+                            i.fas.fa-sign-out-alt.mr-3
+                            span Log out
         else
             .navbar-nav
                 a.nav-item.nav-link.text-light(href='/auth/signin') Sign in
@@ -35,7 +48,7 @@ block index
     .container-fluid(style="background-color: #fff7f4; padding: 6rem 0")
         .row  
             .col-lg-6.d-flex.justify-content-center
-                img(src="images/book-top/anh-chinh-la-thanh-xuan-cua-em.jpg", style="width: 340px; height: 460px; object-fit: cover")
+                img(src="images/book-top/anh-chinh-la-thanh-xuan-cua-em.jpg", style="width: 360px; height: 460px; object-fit: cover")
             .col-lg-6
                 .body-page-item
                     h6 Anh chinh la
@@ -70,7 +83,7 @@ block index
         .row
             .col-lg-6.d-flex(style="margin: 6rem 0")
                 .col-lg-6.d-flex.justify-content-center
-                    img(src="images/book-top/tra-hoa-nu.jpg", style="width: 220px; height: 280px; object-fit: cover")
+                    img(src="images/book-top/tra-hoa-nu.jpg", style="width: 240px; height: 280px; object-fit: cover")
                 .col-lg-6
                     .body-page-item
                         h3 Tra Hoa Nu
@@ -86,7 +99,7 @@ block index
                             span.slider.round
             .col-lg-6.d-flex(style="background-color: #fff7f4; padding: 6rem 0")      
                 .col-lg-6.d-flex.justify-content-center
-                    img(src="images/book-top/hen-em-noi-cafe-cupcake.jpg", style="width: 220px; height: 280px; object-fit: cover")
+                    img(src="images/book-top/hen-em-noi-cafe-cupcake.jpg", style="width: 240px; height: 280px; object-fit: cover")
                 .col-lg-6
                         .body-page-item
                             h3 Hen em noi cafe cupcake
@@ -112,9 +125,9 @@ block index
                     .col-lg-3.p-0.mb-5
                         .cart
                             a(href="/books/" + book.slug)
-                                img(src=book.image, style="width: 220px; height: 280px; object-fit: cover")
-                                h5.mt-4(style="color: #518279; font-weight: 600")=book.name
-                            .body-page-item--production__text.d-flex
+                                img(src=book.image, style="width: 240px; height: 280px; object-fit: cover")
+                                h5.mt-4(style="color: #518279; font-weight: 600; padding-right: 43px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis")=book.name
+                            .body-page-item--production__text.d-flex.m-0
                                 span.mr-1 By
                                 p=book.author
                             .body-page-item--price.d-flex.align-items-center.mt-2

@@ -3,8 +3,6 @@ const router = express.Router();
 const userController = require("../controllers/user.controller");
 const userValidate = require("../middlewares/validates/user.validate");
 
-router.get("/", userController.index);
-router.get("/search", userController.search);
 router.get("/signup", userController.signup);
 router.post("/signup", userValidate, userController.postCreate);
 

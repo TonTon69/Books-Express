@@ -1,10 +1,6 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 
-module.exports.index = (req, res) => {};
-
-module.exports.search = (req, res) => {};
-
 module.exports.signup = (req, res) => {
   res.render("users/signup");
 };

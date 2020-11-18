@@ -2,10 +2,14 @@ const express = require("express");
 const router = express.Router();
 const shopController = require("../controllers/shop.controller");
 
-router.get("/stored/books", shopController.storedBooks);
-// router.get("/search", shopController.search);
-// router.get("/create", shopController.create);
-// router.post("/create", shopController.postCreate);
-// router.get("/:slug", shopController.show);
+const authMiddleware = require("../middlewares/auth.middleware");
+const adminMiddleware = require("../middlewares/admin.middleware");
+
+router.get(
+  "/stored/books",
+  authMiddleware.requireAuth,
+  adminMiddleware.isAdmin,
+  shopController.storedBooks
+);
 
 module.exports = router;
