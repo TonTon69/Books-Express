@@ -8,16 +8,16 @@ block content
                     p.text-danger= error
             .input-field
                 i.fas.fa-user
-                input(type='text', placeholder='Name', name="name", value=values ? values.name : '')               
+                input(type='text', placeholder='Name', name="name", value=values ? values.name : '', required)               
             .input-field
                 i.fas.fa-envelope
-                input(type='email', placeholder='Email', name="email", value=values ? values.email : '')                    
+                input(type='email', placeholder='Email', name="email", value=values ? values.email : '', required)                    
             .input-field
                 i.fas.fa-lock
-                input(type='password', placeholder='Password', name="password", value=values ? values.password : '')
+                input(type='password', placeholder='Password', name="password", value=values ? values.password : '', required)
             .form-group
                 label.d-flex(for="avatar") Please provide your avatar:
-                input#avatar.form-control-file(type='file', name='avatar', required)
+                input#avatar.form-control-file(type='file', name='avatar', value=values ? values.avatar : '', required)
             
             button.btn-sign-up(type='submit') Sign up
             

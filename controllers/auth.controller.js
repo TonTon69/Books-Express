@@ -11,20 +11,20 @@ module.exports.postSignin = (req, res, next) => {
     .then((user) => {
       if (user.length < 1) {
         res.render("auth/signin", {
-          errors: ["Your email entered is incorrect!"],
+          errors: ["Your email do not match!"],
           values: req.body,
         });
       } else {
         bcrypt.compare(req.body.password, user[0].password, (err, result) => {
           if (err) {
             return res.render("auth/signin", {
-              errors: ["Auth failed!"],
+              errors: ["Sign in failed!"],
               values: req.body,
             });
           }
           if (!result) {
             return res.render("auth/signin", {
-              errors: ["Your password entered is incorrect!"],
+              errors: ["Your password do not match!"],
               values: req.body,
             });
           }

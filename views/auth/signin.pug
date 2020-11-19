@@ -1,5 +1,11 @@
 extends ../layouts/common
 block content
+    if alerts
+        each alert in alerts
+            .alert.alert-success.alert-dismissible.fade.show(role='alert', style="position: absolute; top: 80px; right: 20px")
+                p.m-0=alert
+                button.close(type='button', data-dismiss='alert', aria-label='Close')
+                    span(aria-hidden='true') &times;
     .signin
         .panel.left-panel.text-center
             .content
@@ -14,10 +20,10 @@ block content
                     p.text-danger= error      
             .input-field
                 i.fas.fa-envelope
-                input(type='email', placeholder='Email', name="email", value=values ? values.email : '')                    
+                input(type='email', placeholder='Email', name="email", value=values ? values.email : '', required)                    
             .input-field
                 i.fas.fa-lock
-                input(type='password', placeholder='Password', name="password", value=values ? values.password : '')
+                input(type='password', placeholder='Password', name="password", value=values ? values.password : '', required)
             
             button.btn-sign-in(type='submit') Sign in          
             a.btn-link.d-block.mt-2.mb-2(href="#") Forgot Password?

@@ -231,6 +231,10 @@ img {
 .panel.left-panel img {
   width: 90%;
 }
+/* Alert message when signup success */
+button.close:focus {
+  outline: none;
+}
 
 /* Index .body-page-item */
 .body-page-item h6 {
