@@ -6,6 +6,7 @@ module.exports.signup = (req, res) => {
 };
 
 module.exports.postCreate = (req, res, next) => {
+  req.body.avatar = req.file.path.split("\\").slice(-2).join("/");
   User.find({ email: req.body.email })
     .exec()
     .then((user) => {
@@ -24,6 +25,7 @@ module.exports.postCreate = (req, res, next) => {
             const user = new User({
               name: req.body.name,
               email: req.body.email,
+              avatar: req.body.avatar,
               password: hash,
             });
             user

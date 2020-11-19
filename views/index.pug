@@ -12,7 +12,7 @@ block navbar_home
         if user 
             .user.d-flex.align-items-center
                 p.m-0.mr-3.text-light= user.name
-                img(src="/images/author-top/1.jpg", style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover")
+                img(src=user.avatar, style="width: 35px; height: 35px; border-radius: 50%; object-fit: cover")
                 .user-menu
                     if user.role
                         a.text-dark(href="/books/create") 
@@ -22,7 +22,7 @@ block navbar_home
                             i.fas.fa-list.mr-3
                             span My Books
                         a.text-dark(href="/shop/stored/users") 
-                            i.fas.fa-list.mr-3
+                            i.fas.fa-users.mr-3
                             span My Users
                         a.text-dark(href="") 
                             i.fas.fa-cog.mr-3

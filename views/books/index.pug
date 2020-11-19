@@ -1,19 +1,17 @@
 extends ../layouts/common
-block content
-        h1
-            span.mr-3 Books
-        .d-flex.align-items-center
-            form.d-flex.ml-auto(action="/books/search", method="get")
-                input.form-control(type="text", placeholder="Search...", name="name", value=values ? values.name : '')
-                button.btn.btn-primary.ml-2 Search
+block content    
+    .d-flex.align-items-center
+        form.d-flex.ml-auto(action="/books/search", method="get")
+            input.form-control(type="text", placeholder="Search...", name="name", value=values ? values.name : '')
+            button.btn.btn-primary.ml-2 Search
 
-        .row.mt-4
-            each book in books
-                .card.mb-5.mr-4(style='width: 22rem')
-                    a(href="/books/" + book.slug)
-                        img.card-img-top(src=book.image)
-                    .card-body
-                        a.text-dark(href="/books/" + book.slug)
-                            h5.card-title=book.name
-                        p.card-text=book.description
-                        a.btn.btn-primary(href='#') Buy now
+    .row.mt-4
+        each book in books
+            .card.mb-5.mr-4(style='width: 22rem')
+                a(href="/books/" + book.slug)
+                    img.card-img-top(src=book.image)
+                .card-body
+                    a.text-dark(href="/books/" + book.slug)
+                        h5.card-title=book.name
+                    p.card-text=book.description
+                    a.btn.btn-primary(href='#') Buy now
