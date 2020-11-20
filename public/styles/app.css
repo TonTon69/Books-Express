@@ -205,7 +205,8 @@ img {
 .btn-sign-up:hover,
 .btn-sign-in:hover,
 .panel.right-panel .content a:hover,
-.panel.left-panel .content a:hover {
+.panel.left-panel .content a:hover,
+.btn-addToCart:hover {
   color: #fff;
   background-color: #fb5533;
   border: 1px solid #fb5533;
@@ -411,4 +412,21 @@ a.dropdown-item:hover {
   color: #777;
   font-size: 16px;
   font-weight: 500;
+}
+
+/* Index books */
+.btn-addToCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 130px;
+  height: 40px;
+  font-weight: 600;
+  border-radius: 49px;
+  text-transform: uppercase;
+  background-color: #fa6345;
+  border: none;
+  outline: none;
+  color: #fff;
 }

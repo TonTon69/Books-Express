@@ -1,17 +1,16 @@
 extends ../layouts/common
 block content    
-    .d-flex.align-items-center
-        form.d-flex.ml-auto(action="/books/search", method="get")
-            input.form-control(type="text", placeholder="Search...", name="name", value=values ? values.name : '')
-            button.btn.btn-primary.ml-2 Search
+    form.d-flex.ml-auto.position-relative(action="/books/search", method="get")
+        i.fas.fa-search.position-absolute(style="color: #999; top: 12px; left: 14px;")
+        input.form-control.input-search(type="text", placeholder="Search...", name="name", value=values ? values.name : '', style=" border-radius: 25px; padding: 0 36px")
 
     .row.mt-4
         each book in books
-            .card.mb-5.mr-4(style='width: 22rem')
+            .card.mb-5.mr-4.justify-content-center(style='width: 22rem')
                 a(href="/books/" + book.slug)
                     img.card-img-top(src=book.image)
-                .card-body
+                .card-body.position-relative
                     a.text-dark(href="/books/" + book.slug)
                         h5.card-title=book.name
                     p.card-text=book.description
-                    a.btn.btn-primary(href='#') Buy now
+                    a.btn.btn-primary.btn-addToCart(href='#') Buy now
