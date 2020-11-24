@@ -430,3 +430,26 @@ a.dropdown-item:hover {
   outline: none;
   color: #fff;
 }
+
+/* Show book */
+.view-share {
+  width: 36px;
+  height: 36px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+}
+.view-share-fb:hover,
+.view-share-twi:hover,
+.view-share-insta:hover {
+  background-color: #999999;
+}
+.fab.fa-facebook-f,
+.fab.fa-twitter,
+.fab.fa-instagram {
+  color: #999;
+}
+.view-share-fb:hover .fab.fa-facebook-f,
+.view-share-twi:hover .fab.fa-twitter,
+.view-share-insta:hover .fab.fa-instagram {
+  color: #fff;
+}

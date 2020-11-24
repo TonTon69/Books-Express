@@ -6,9 +6,21 @@ block content
             .m-4(style="position: relative")
                 h4=book.name
                 p=book.description
-                .d-flex.align-items-center.justify-content-center(style="background-color: #fff; border-radius: 6px; height: 60px")
+                span By&nbsp
+                    a(href="#")
+                        span(style="color: #111; font-weight: 500")=book.author
+                .d-flex.align-items-center.justify-content-center.mt-4(style="background-color: #fff; border-radius: 6px; height: 60px")
                     span.m-4.text-danger(style="font-size: 20px")=book.price_new
                     span.m-4(style="color: #999; font-size: 20px; text-decoration: line-through !important")=book.price_old
                 .view-book-cart
                     a.btn.btn-primary.mr-3(href="") Thêm vào giỏ hàng
-                    img.btn.btn-light(src="/images/shopping-cart.svg", style="width: 48px; height: 38px; border: 1px solid rgba(0, 0, 0, 0.2);")
+                    img.btn.btn-light(src="/images/shopping-cart.svg", style="width: 48px; height: 38px; border: 1px solid rgba(0, 0, 0, 0.2)")
+                    .d-flex.align-items-center.mt-4.mb-2
+                        span.mr-4 Share
+                        .d-flex
+                            a.view-share.view-share-fb(href="#").mr-2.d-flex.align-items-center.justify-content-center
+                                i.fab.fa-facebook-f   
+                            a.view-share.view-share-twi(href="#").mr-2.d-flex.align-items-center.justify-content-center
+                                i.fab.fa-twitter
+                            a.view-share.view-share-insta(href="#").mr-2.d-flex.align-items-center.justify-content-center
+                                i.fab.fa-instagram
