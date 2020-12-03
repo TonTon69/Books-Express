@@ -55,23 +55,7 @@ img {
   font-size: 1.6rem;
   font-weight: 700;
 }
-.card a {
-  position: relative;
-  overflow: hidden;
-}
-.card-img-top {
-  height: 300px;
-  object-fit: cover;
-  transition: all 0.3s ease-in-out;
-}
-.card-img-top:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
-}
-.view-book-cart {
-  position: absolute;
-  bottom: 0;
-}
+
 /* Hover user menu */
 .user {
   position: relative;
@@ -415,11 +399,27 @@ a.dropdown-item:hover {
 }
 
 /* Index books */
+.card a {
+  position: relative;
+  overflow: hidden;
+}
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+.card-img-top:hover {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.view-book-cart {
+  position: absolute;
+  bottom: 0;
+}
 .btn-addToCart {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   width: 130px;
   height: 40px;
   font-weight: 600;
@@ -429,8 +429,11 @@ a.dropdown-item:hover {
   border: none;
   outline: none;
   color: #fff;
+  float: right;
 }
-
+.card-body a h5:hover {
+  color: #fb5533;
+}
 /* Show book */
 .view-share {
   width: 36px;
