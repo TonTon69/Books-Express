@@ -2,18 +2,23 @@ const Book = require("../models/book.model");
 const User = require("../models/user.model");
 
 module.exports.index = (req, res, next) => {
+  const page = parseInt(req.query.page) || 1;
+  const perPage = 6;
+  const start = (page - 1) * perPage;
+  const end = page * perPage;
   Book.find({})
     .then((books) => {
+      const bookFilter = books.slice(start, end);
       User.findOne({ _id: req.signedCookies.userId })
         .then((user) => {
           if (user) {
             res.locals.user = user;
             res.render("books", {
-              books: books,
+              books: bookFilter,
             });
           } else {
             res.render("books", {
-              books: books,
+              books: bookFilter,
             });
           }
         })
