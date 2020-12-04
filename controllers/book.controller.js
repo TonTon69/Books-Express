@@ -6,9 +6,13 @@ module.exports.index = (req, res, next) => {
   const perPage = 6;
   const start = (page - 1) * perPage;
   const end = page * perPage;
+  let isEmptyBooks = false;
   Book.find({})
     .then((books) => {
       const bookFilter = books.slice(start, end);
+      if (bookFilter.length === 0) {
+        isEmptyBooks = true;
+      }
       User.findOne({ _id: req.signedCookies.userId })
         .then((user) => {
           if (user) {
@@ -16,11 +20,13 @@ module.exports.index = (req, res, next) => {
             res.render("books", {
               books: bookFilter,
               page: page,
+              isEmptyBooks: isEmptyBooks,
             });
           } else {
             res.render("books", {
               books: bookFilter,
               page: page,
+              isEmptyBooks: isEmptyBooks,
             });
           }
         })

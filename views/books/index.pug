@@ -2,7 +2,7 @@ extends ../layouts/common
 block content    
     form.d-flex.ml-auto.position-relative(action="/books/search", method="get")
         i.fas.fa-search.position-absolute(style="color: #999; top: 12px; left: 14px;")
-        input.form-control.input-search(type="text", placeholder="Search...", name="name", value=values ? values.name : '', style=" border-radius: 25px; padding: 0 36px")
+        input.form-control.input-search(type="text", placeholder="Search books...", name="name", value=values ? values.name : '', style=" border-radius: 25px; padding: 0 36px")
 
     .row.mt-4
         each book in books
@@ -15,37 +15,40 @@ block content
                     p.card-text=book.description
                     a.btn.btn-primary.btn-addToCart(href='#') Buy now
     if page
-        if page === 1
-            .d-flex.justify-content-center(aria-label='Page navigation')
-                ul.pagination
-                    li.page-item
-                        a.page-link.text-dark(href='#', aria-label='Previous', name="page")
-                            span(aria-hidden='true') &laquo;
-                            span.sr-only Previous
-                    li.page-item
-                        a.page-link.text-dark(href='?page=' + page)= page
-                    li.page-item
-                        a.page-link.text-dark(href='?page=' + (page+1))= page+1
-                    li.page-item
-                        a.page-link.text-dark(href='?page=' + (page+2))= page+2
-                    li.page-item
-                        a.page-link.text-dark(href='?page=' + (page+1), aria-label='Next')
-                            span(aria-hidden='true') &raquo;
-                            span.sr-only Next
-        else
-            .d-flex.justify-content-center(aria-label='Page navigation example')
-                ul.pagination
-                    li.page-item
-                        a.page-link.text-dark(href='?page='+ (page-1), aria-label='Previous')
-                            span(aria-hidden='true') &laquo;
-                            span.sr-only Previous
-                    li.page-item
-                        a.page-link.text-dark(href='?page=' + (page-1))= page-1
-                    li.page-item
-                        a.page-link.text-dark(href='?page=' + page)= page
-                    li.page-item
-                        a.page-link.text-dark(href='?page=' + (page+1))= page+1
-                    li.page-item
-                        a.page-link.text-dark(href='?page='+ (page+1), aria-label='Next')
-                            span(aria-hidden='true') &raquo;
-                            span.sr-only Next   
+        if !isEmptyBooks
+            if page === 1
+                .d-flex.justify-content-center(aria-label='Page navigation')
+                    ul.pagination
+                        li.page-item
+                            a.page-link.text-dark(href='#', aria-label='Previous', name="page")
+                                span(aria-hidden='true') &laquo;
+                                span.sr-only Previous
+                        li.page-item
+                            a.page-link.text-dark(href='?page=' + page)= page
+                        li.page-item
+                            a.page-link.text-dark(href='?page=' + (page+1))= page+1
+                        li.page-item
+                            a.page-link.text-dark(href='?page=' + (page+2))= page+2
+                        li.page-item
+                            a.page-link.text-dark(href='?page=' + (page+1), aria-label='Next')
+                                span(aria-hidden='true') &raquo;
+                                span.sr-only Next
+            else
+                .d-flex.justify-content-center(aria-label='Page navigation example')
+                    ul.pagination
+                        li.page-item
+                            a.page-link.text-dark(href='?page='+ (page-1), aria-label='Previous')
+                                span(aria-hidden='true') &laquo;
+                                span.sr-only Previous
+                        li.page-item
+                            a.page-link.text-dark(href='?page=' + (page-1))= page-1
+                        li.page-item
+                            a.page-link.text-dark(href='?page=' + page)= page
+                        li.page-item
+                            a.page-link.text-dark(href='?page=' + (page+1))= page+1
+                        li.page-item
+                            a.page-link.text-dark(href='?page='+ (page+1), aria-label='Next')
+                                span(aria-hidden='true') &raquo;
+                                span.sr-only Next   
+        else   
+            p.d-flex.justify-content-center.mt-5 Out of books. Please come back next time. Thank you ^^
