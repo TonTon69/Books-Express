@@ -14,3 +14,38 @@ block content
                         h5.card-title=book.name
                     p.card-text=book.description
                     a.btn.btn-primary.btn-addToCart(href='#') Buy now
+    if page
+        if page === 1
+            .d-flex.justify-content-center(aria-label='Page navigation')
+                ul.pagination
+                    li.page-item
+                        a.page-link.text-dark(href='#', aria-label='Previous', name="page")
+                            span(aria-hidden='true') &laquo;
+                            span.sr-only Previous
+                    li.page-item
+                        a.page-link.text-dark(href='?page=' + page)= page
+                    li.page-item
+                        a.page-link.text-dark(href='?page=' + (page+1))= page+1
+                    li.page-item
+                        a.page-link.text-dark(href='?page=' + (page+2))= page+2
+                    li.page-item
+                        a.page-link.text-dark(href='?page=' + (page+1), aria-label='Next')
+                            span(aria-hidden='true') &raquo;
+                            span.sr-only Next
+        else
+            .d-flex.justify-content-center(aria-label='Page navigation example')
+                ul.pagination
+                    li.page-item
+                        a.page-link.text-dark(href='?page='+ (page-1), aria-label='Previous')
+                            span(aria-hidden='true') &laquo;
+                            span.sr-only Previous
+                    li.page-item
+                        a.page-link.text-dark(href='?page=' + (page-1))= page-1
+                    li.page-item
+                        a.page-link.text-dark(href='?page=' + page)= page
+                    li.page-item
+                        a.page-link.text-dark(href='?page=' + (page+1))= page+1
+                    li.page-item
+                        a.page-link.text-dark(href='?page='+ (page+1), aria-label='Next')
+                            span(aria-hidden='true') &raquo;
+                            span.sr-only Next   

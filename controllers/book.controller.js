@@ -15,10 +15,12 @@ module.exports.index = (req, res, next) => {
             res.locals.user = user;
             res.render("books", {
               books: bookFilter,
+              page: page,
             });
           } else {
             res.render("books", {
               books: bookFilter,
+              page: page,
             });
           }
         })
