@@ -9,9 +9,24 @@ block content
                 span By&nbsp
                     a(href="#")
                         span(style="color: #111; font-weight: 500")=book.author
-                .d-flex.align-items-center.justify-content-center.mt-4(style="background-color: #fff; border-radius: 6px; height: 60px")
+                .body-page-item--rating.d-flex.mt-3
+                    .star.mr-2.d-flex.align-items-center
+                        i.fas.fa-star.mr-1
+                        i.fas.fa-star.mr-1
+                        i.fas.fa-star.mr-1
+                        i.fas.fa-star.mr-1
+                        i.fas.fa-star.mr-1
+                    span (4.1/6900 Reviews)
+                .d-flex.align-items-center.justify-content-center.mt-4.mb-4(style="background-color: #fff; border-radius: 6px; height: 60px")
                     span.m-4.text-danger(style="font-size: 20px")=book.price_new
-                    span.m-4(style="color: #999; font-size: 20px; text-decoration: line-through !important")=book.price_old
+                    span.m-4(style="color: #999; font-size: 20px; text-decoration: line-through !important")=book.price_old        
+                .d-flex
+                    div
+                        p Transport: 
+                        p Amount:
+                    .ml-5
+                        p Free
+                        input.p-1(type="text", placeholder="Enter amount...")
                 .view-book-cart
                     a.btn.mr-3(href="", style="background-color: #fb5533; color: #fff") Thêm vào giỏ hàng
                     img.btn.btn-light(src="/images/shopping-cart.svg", style="width: 48px; height: 38px; border: 1px solid rgba(0, 0, 0, 0.2)")
