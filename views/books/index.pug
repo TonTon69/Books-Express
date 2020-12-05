@@ -13,7 +13,7 @@ block content
                     a.text-dark(href="/books/" + book.slug)
                         h5.card-title=book.name
                     p.card-text=book.description
-                    a.btn.btn-primary.btn-addToCart(href='#') Buy now
+                    a.btn.btn-primary.btn-addToCart(href='/cart/add/' + book.id) Add to cart
     if page
         if !isEmptyBooks
             if page === 1

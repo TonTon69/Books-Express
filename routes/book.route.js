@@ -19,7 +19,7 @@ router.post(
   adminMiddleware.isAdmin,
   bookController.postCreate
 );
-router.get("/:slug", authMiddleware.requireAuth, bookController.show);
+router.get("/:slug", bookController.show);
 router.get(
   "/:id/edit",
   authMiddleware.requireAuth,
