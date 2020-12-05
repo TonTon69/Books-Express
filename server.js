@@ -4,6 +4,7 @@ const express = require("express");
 const port = 3000;
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const csurf = require("csurf");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const app = express();
@@ -44,7 +45,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
 
 app.use(sessionMiddleware);
-
+app.use(csurf({ cookie: true }));
 app.use(express.static("public"));
 
 app.use(methodOverride("_method"));

@@ -3,7 +3,9 @@ const User = require("../models/user.model");
 const Book = require("../models/book.model");
 
 module.exports.create = (req, res, next) => {
-  res.render("transfer/create");
+  res.render("transfer/create", {
+    csrfToken: req.csrfToken(),
+  });
 };
 module.exports.postCreate = (req, res, next) => {
   const transfer = new Transfer({
