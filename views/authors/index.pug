@@ -3,5 +3,9 @@ block content
     form.d-flex.ml-auto.position-relative(action="/authors/search", method="get")
         i.fas.fa-search.position-absolute(style="color: #999; top: 12px; left: 14px;")
         input.form-control.input-search(type="text", placeholder="Search author...", name="name", value=values ? values.name : '', style=" border-radius: 25px; padding: 0 36px")
-    each author in authors
-        p=author.name
+    .d-flex.text-center.mt-5
+        each author in authors
+            .mr-4.ml-4
+                a(href="/authors/" + author.slug)
+                    img(src=author.image, style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                    span.d-block.mt-4(style="font-weight: 600")=author.name
