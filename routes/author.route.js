@@ -7,6 +7,7 @@ const adminMiddleware = require("../middlewares/admin.middleware");
 
 router.get("/", authorController.index);
 router.get("/search", authorController.search);
+router.get("/:slug", authorController.show);
 router.get(
   "/create",
   authMiddleware.requireAuth,

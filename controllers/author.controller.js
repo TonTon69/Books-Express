@@ -69,3 +69,23 @@ module.exports.search = (req, res, next) => {
     })
     .catch(next);
 };
+module.exports.show = (req, res, next) => {
+  Author.findOne({ slug: req.params.slug })
+    .then((author) => {
+      User.findOne({ _id: req.signedCookies.userId })
+        .then((user) => {
+          if (user) {
+            res.locals.user = user;
+            res.render("authors/show", {
+              author: author,
+            });
+          } else {
+            res.render("authors/show", {
+              author: author,
+            });
+          }
+        })
+        .catch(next);
+    })
+    .catch(next);
+};
