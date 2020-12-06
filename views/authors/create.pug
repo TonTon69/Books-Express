@@ -1,0 +1,14 @@
+extends ../layouts/common
+block content
+    .d-flex.align-items-center.justify-content-between
+        h1 Create Author
+        a(href="/shop/stored/authors") My authors
+    form(action="/authors/create", method="post")
+        .form-group
+            label(for="name") Name
+            input#name(type="text", name="name", class="form-control") 
+        .form-group
+            label(for="image") Image
+            input#image(type="text", name="image", class="form-control") 
+        
+        button.btn.btn-primary.btn-sign-in Create

@@ -7,6 +7,7 @@ block navbar_home
         .navbar-nav(style="text-transform: uppercase")
             a.nav-item.nav-link.text-light.mr-5(href='/') Home 
             a.nav-item.nav-link.text-light.mr-5(href='/books') Books
+            a.nav-item.nav-link.text-light.mr-5(href='/authors') Authors
             a.nav-item.nav-link.text-light.mr-5(href='/') Contact
         if user 
             .user.d-flex.align-items-center
@@ -17,6 +18,9 @@ block navbar_home
                         a.text-dark(href="/books/create") 
                             i.fas.fa-plus.mr-3
                             span Create Book
+                        a.text-dark(href="/authors/create") 
+                            i.fas.fa-plus.mr-3
+                            span Create Author
                         a.text-dark(href="/shop/stored/books") 
                             i.fas.fa-list.mr-3
                             span My Books
@@ -138,7 +142,7 @@ block index
     .container-fluid
         .container.d-flex.justify-content-between.align-items-center(style="padding: 6rem 0 4rem 0")      
             h2(style="font-weight: 600; color: #444") Top Authors
-            a(href="#")
+            a(href="/authors")
                 spand.d-flex.align-items-center(style="font-weight: 600; color: #fb5533") View all
                     i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #fb5533")
         .container.d-flex.text-center.justify-content-center(style="padding: 0 0 8rem 0") 

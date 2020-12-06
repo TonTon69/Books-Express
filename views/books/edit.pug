@@ -1,28 +1,28 @@
 extends ../layouts/common
 block content
-        h1 Update Book
-        form(action="/books/" + book._id, method="post")
-            .form-group
-                label(for="name") Name
-                input#name(type="text", name="name", value=book.name, class="form-control") 
-            .form-group
-                label(for="image") Image
-                input#image(type="text", name="image", value=book.image, class="form-control") 
-            .form-group
-                label(for="description") Description
-                input#description(type="text", name="description", value=book.description, class="form-control")
-            .form-group
-                label(for="price_old") Price Old
-                input#price_old(type="text", name="price_old", value=book.price_old, class="form-control") 
-            .form-group
-                label(for="price_new") Price New
-                input#price_new(type="text", name="price_new", value=book.price_new, class="form-control") 
-            .form-group
-                label(for="author") Author
-                input#author(type="text", name="author", value=book.author, class="form-control") 
-            .form-group
-                label(for="type") Type
-                input#type(type="text", name="type", value=book.type, class="form-control")  
-            button.btn.btn-primary Save
+    h1 Update Book
+    form(action="/books/" + book._id, method="post")
+        .form-group
+            label(for="name") Name
+            input#name(type="text", name="name", value=book.name, class="form-control") 
+        .form-group
+            label(for="image") Image
+            input#image(type="text", name="image", value=book.image, class="form-control") 
+        .form-group
+            label(for="description") Description
+            input#description(type="text", name="description", value=book.description, class="form-control")
+        .form-group
+            label(for="price_old") Price Old
+            input#price_old(type="text", name="price_old", value=book.price_old, class="form-control") 
+        .form-group
+            label(for="price_new") Price New
+            input#price_new(type="text", name="price_new", value=book.price_new, class="form-control") 
+        .form-group
+            label(for="author") Author
+            input#author(type="text", name="author", value=book.author, class="form-control") 
+        .form-group
+            label(for="type") Type
+            input#type(type="text", name="type", value=book.type, class="form-control")  
+        button.btn.btn-primary Save
 
         

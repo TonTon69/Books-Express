@@ -18,6 +18,7 @@ html
                     .navbar-nav(style="text-transform: uppercase")
                         a.nav-item.nav-link.text-light.mr-5(href='/') Home 
                         a.nav-item.nav-link.text-light.mr-5(href='/books') Books
+                        a.nav-item.nav-link.text-light.mr-5(href='/authors') Authors
                         a.nav-item.nav-link.text-light.mr-5(href='/') Contact
                     if user 
                         .user.d-flex.align-items-center
@@ -28,6 +29,9 @@ html
                                     a.text-dark(href="/books/create") 
                                         i.fas.fa-plus.mr-3
                                         span Create book
+                                    a.text-dark(href="/authors/create") 
+                                        i.fas.fa-plus.mr-3
+                                        span Create Author
                                     a.text-dark(href="/shop/stored/books") 
                                         i.fas.fa-list.mr-3
                                         span My books

@@ -1,5 +1,6 @@
 const Book = require("../models/book.model");
 const User = require("../models/user.model");
+const Author = require("../models/author.model");
 
 module.exports.index = (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
@@ -79,9 +80,20 @@ module.exports.postCreate = (req, res, next) => {
 module.exports.show = (req, res, next) => {
   Book.findOne({ slug: req.params.slug })
     .then((book) => {
-      res.render("books/show", {
-        book: book,
-      });
+      User.findOne({ _id: req.signedCookies.userId })
+        .then((user) => {
+          if (user) {
+            res.locals.user = user;
+            res.render("books/show", {
+              book: book,
+            });
+          } else {
+            res.render("books/show", {
+              book: book,
+            });
+          }
+        })
+        .catch(next);
     })
     .catch(next);
 };

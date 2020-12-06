@@ -9,9 +9,9 @@ const bookSchema = new Schema(
     description: { type: String },
     price_new: { type: String },
     price_old: { type: String },
-    author: { type: String },
     type: { type: String },
     slug: { type: String, slug: "name", unique: true },
+    author: { type: mongoose.Schema.Types.ObjectId, ref: "Author" },
   },
   {
     timestamps: true,

@@ -4,7 +4,7 @@ const express = require("express");
 const port = 3000;
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const csurf = require("csurf");
+// const csurf = require("csurf");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const app = express();
@@ -33,6 +33,7 @@ const authRouter = require("./routes/auth.route");
 const shopRouter = require("./routes/shop.route");
 const cartRouter = require("./routes/cart.route");
 const transferRouter = require("./routes/transfer.route");
+const authorRouter = require("./routes/author.route");
 
 const authMiddleware = require("./middlewares/auth.middleware");
 const sessionMiddleware = require("./middlewares/session.middleware");
@@ -41,11 +42,12 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser(process.env.SESSION_SECRET));
 
 app.use(sessionMiddleware);
-app.use(csurf({ cookie: true }));
+// app.use(csurf({ cookie: true }));
+
 app.use(express.static("public"));
 
 app.use(methodOverride("_method"));
@@ -83,6 +85,7 @@ app.use("/auth", authRouter);
 app.use("/shop", shopRouter);
 app.use("/cart", cartRouter);
 app.use("/transfer", authMiddleware.requireAuth, transferRouter);
+app.use("/authors", authorRouter);
 
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
