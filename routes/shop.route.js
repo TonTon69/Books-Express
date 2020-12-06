@@ -19,4 +19,11 @@ router.get(
   shopController.storedUsers
 );
 
+router.get(
+  "/stored/authors",
+  authMiddleware.requireAuth,
+  adminMiddleware.isAdmin,
+  shopController.storedAuthors
+);
+
 module.exports = router;

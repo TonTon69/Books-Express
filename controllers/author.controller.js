@@ -2,10 +2,6 @@ const Author = require("../models/author.model");
 const User = require("../models/user.model");
 
 module.exports.index = (req, res, next) => {
-  let searchOptions = {};
-  if (req.query.name != null && req.query.name !== "") {
-    searchOptions.name = new RegExp(req.query.name, "i");
-  }
   Author.find({})
     .then((authors) => {
       User.findOne({ _id: req.signedCookies.userId })
@@ -14,12 +10,10 @@ module.exports.index = (req, res, next) => {
             res.locals.user = user;
             res.render("authors/index", {
               authors: authors,
-              searchOptions: req.query,
             });
           } else {
             res.render("authors/index", {
               authors: authors,
-              searchOptions: req.query,
             });
           }
         })
