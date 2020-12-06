@@ -11,6 +11,7 @@ const app = express();
 
 const Book = require("./models/book.model");
 const User = require("./models/user.model");
+const Author = require("./models/author.model");
 
 // Connect db
 const { MONGOURI } = require("./db");
@@ -53,30 +54,22 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
 // Home Route
-app.get("/", function (req, res, next) {
+app.get("/", async (req, res, next) => {
   const page = parseInt(req.query.page) || 1;
   const perPage = 8;
   const start = (page - 1) * perPage;
   const end = page * perPage;
-  Book.find({})
-    .then((books) => {
-      const bookFilter = books.slice(start, end);
-      User.findOne({ _id: req.signedCookies.userId })
-        .then((user) => {
-          if (user) {
-            res.locals.user = user;
-            res.render("index", {
-              books: bookFilter,
-            });
-          } else {
-            res.render("index", {
-              books: bookFilter,
-            });
-          }
-        })
-        .catch(next);
-    })
-    .catch(next);
+  const books = await Book.find({}).sort({ _id: -1 });
+  const authors = await Author.find({}).sort({ _id: -1 });
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+
+  const bookFilter = books.slice(start, end);
+  res.render("index", {
+    books: bookFilter,
+    authors: authors,
+    user,
+  });
 });
 
 app.use("/books", bookRouter);

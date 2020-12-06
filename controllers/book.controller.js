@@ -2,67 +2,40 @@ const Book = require("../models/book.model");
 const User = require("../models/user.model");
 const Author = require("../models/author.model");
 
-module.exports.index = (req, res, next) => {
+module.exports.index = async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const perPage = 6;
   const start = (page - 1) * perPage;
   const end = page * perPage;
   let isEmptyBooks = false;
-  Book.find({})
-    .then((books) => {
-      const bookFilter = books.slice(start, end);
-      if (bookFilter.length === 0) {
-        isEmptyBooks = true;
-      }
-      User.findOne({ _id: req.signedCookies.userId })
-        .then((user) => {
-          if (user) {
-            res.locals.user = user;
-            res.render("books", {
-              books: bookFilter,
-              page: page,
-              isEmptyBooks: isEmptyBooks,
-            });
-          } else {
-            res.render("books", {
-              books: bookFilter,
-              page: page,
-              isEmptyBooks: isEmptyBooks,
-            });
-          }
-        })
-        .catch(next);
-    })
-    .catch(next);
+
+  const books = await Book.find({}).sort({ _id: -1 });
+  const bookFilter = books.slice(start, end);
+  if (bookFilter.length === 0) {
+    isEmptyBooks = true;
+  }
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+  res.render("books", {
+    books: bookFilter,
+    page: page,
+    isEmptyBooks: isEmptyBooks,
+    user,
+  });
 };
 
-module.exports.search = (req, res, next) => {
-  Book.find({})
-    .sort({ _id: -1 })
-    .then((books) => {
-      const matchedBooks = books.filter((book) => {
-        return (
-          book.name.toLowerCase().indexOf(req.query.name.toLowerCase()) !== -1
-        );
-      });
-      User.findOne({ _id: req.signedCookies.userId })
-        .then((user) => {
-          if (user) {
-            res.locals.user = user;
-            res.render("books/index", {
-              books: matchedBooks,
-              values: req.body,
-            });
-          } else {
-            res.render("books/index", {
-              books: matchedBooks,
-              values: req.body,
-            });
-          }
-        })
-        .catch(next);
-    })
-    .catch(next);
+module.exports.search = async (req, res) => {
+  const books = await Book.find({}).sort({ _id: -1 });
+  const matchedBooks = books.filter((book) => {
+    return book.name.toLowerCase().indexOf(req.query.name.toLowerCase()) !== -1;
+  });
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+  res.render("books/index", {
+    books: matchedBooks,
+    values: req.body,
+    user,
+  });
 };
 
 module.exports.create = (req, res) => {
@@ -77,42 +50,26 @@ module.exports.postCreate = (req, res, next) => {
     })
     .catch(next);
 };
-module.exports.show = (req, res, next) => {
-  Book.findOne({ slug: req.params.slug })
-    .then((book) => {
-      User.findOne({ _id: req.signedCookies.userId })
-        .then((user) => {
-          if (user) {
-            res.locals.user = user;
-            res.render("books/show", {
-              book: book,
-            });
-          } else {
-            res.render("books/show", {
-              book: book,
-            });
-          }
-        })
-        .catch(next);
-    })
-    .catch(next);
+module.exports.show = async (req, res) => {
+  const book = await Book.findOne({ slug: req.params.slug });
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+  res.render("books/show", {
+    book: book,
+    user,
+  });
 };
-module.exports.edit = (req, res, next) => {
-  Book.findById(req.params.id)
-    .then((book) => {
-      res.render("books/edit", {
-        book: book,
-      });
-    })
-    .catch(next);
+module.exports.edit = async (req, res) => {
+  const book = await Book.findById(req.params.id);
+  res.render("books/edit", {
+    book: book,
+  });
 };
-module.exports.update = (req, res, next) => {
-  Book.updateOne({ _id: req.params.id }, req.body)
-    .then(() => res.redirect("/shop/stored/books"))
-    .catch(next);
+module.exports.update = async (req, res) => {
+  await Book.updateOne({ _id: req.params.id }, req.body);
+  res.redirect("/shop/stored/books");
 };
-module.exports.delete = (req, res, next) => {
-  Book.deleteOne({ _id: req.params.id })
-    .then(() => res.redirect("back"))
-    .catch(next);
+module.exports.delete = async (req, res) => {
+  await Book.deleteOne({ _id: req.params.id });
+  res.redirect("back");
 };

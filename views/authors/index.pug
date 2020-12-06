@@ -6,6 +6,6 @@ block content
     .d-flex.text-center.mt-5
         each author in authors
             .mr-4.ml-4
-                a(href="/authors/" + author.slug)
+                a.author-link.text-dark(href="/authors/" + author.slug)
                     img(src=author.image, style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
                     span.d-block.mt-4(style="font-weight: 600")=author.name

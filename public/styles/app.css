@@ -431,7 +431,8 @@ a.dropdown-item:hover {
   color: #fff;
   float: right;
 }
-.card-body a h5:hover {
+.card-body a h5:hover,
+.author-link span:hover {
   color: #fb5533;
 }
 /* Show book */

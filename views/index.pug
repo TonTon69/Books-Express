@@ -21,6 +21,7 @@ block navbar_home
                         a.text-dark(href="/authors/create") 
                             i.fas.fa-plus.mr-3
                             span Create Author
+                        hr
                         a.text-dark(href="/shop/stored/books") 
                             i.fas.fa-list.mr-3
                             span My Books
@@ -30,6 +31,7 @@ block navbar_home
                         a.text-dark(href="/shop/stored/authors") 
                             i.fas.fa-users.mr-3
                             span Authors
+                        hr
                         a.text-dark(href="") 
                             i.fas.fa-cog.mr-3
                             span Settings
@@ -149,21 +151,9 @@ block index
                 spand.d-flex.align-items-center(style="font-weight: 600; color: #fb5533") View all
                     i.fas.fa-chevron-circle-right.ml-2(style="font-size: 20px; color: #fb5533")
         .container.d-flex.text-center.justify-content-center(style="padding: 0 0 8rem 0") 
-            .mr-4.ml-4
-                img(src="images/author-top/1.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
-                span.d-block.mt-4(style="font-weight: 600") Ha Vu
-            .mr-4.ml-4
-                img(src="images/author-top/2.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
-                span.d-block.mt-4(style="font-weight: 600") Takuji Ichikawa
-            .mr-4.ml-4
-                img(src="images/author-top/3.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
-                span.d-block.mt-4(style="font-weight: 600") Jenny Colgan
-            .mr-4.ml-4
-                img(src="images/author-top/4.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
-                span.d-block.mt-4(style="font-weight: 600") Dale Carnegie
-            .mr-4.ml-4
-                img(src="images/author-top/5.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
-                span.d-block.mt-4(style="font-weight: 600") Setup
-            .mr-4.ml-4
-                img(src="images/author-top/6.jpg", style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
-                span.d-block.mt-4(style="font-weight: 600") Pham Huy Hoang
+            each author in authors
+                .mr-4.ml-4
+                    a.author-link.text-dark(href="/authors/" + author.slug)
+                        img(src=author.image, style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover")
+                        span.d-block.mt-4(style="font-weight: 600")=author.name
+    

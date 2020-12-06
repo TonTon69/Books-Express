@@ -1,32 +1,21 @@
 const Author = require("../models/author.model");
 const User = require("../models/user.model");
 
-module.exports.index = (req, res, next) => {
-  Author.find({})
-    .then((authors) => {
-      User.findOne({ _id: req.signedCookies.userId })
-        .then((user) => {
-          if (user) {
-            res.locals.user = user;
-            res.render("authors/index", {
-              authors: authors,
-            });
-          } else {
-            res.render("authors/index", {
-              authors: authors,
-            });
-          }
-        })
-        .catch(next);
-    })
-    .catch(next);
+module.exports.index = async (req, res) => {
+  const authors = await Author.find({});
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+  res.render("authors/index", {
+    authors: authors,
+    user,
+  });
 };
 
 module.exports.create = (req, res) => {
   res.render("authors/create");
 };
 module.exports.postCreate = (req, res, next) => {
-  const author = new Author(req.body);
+  const author = new Author();
   author
     .save()
     .then(() => {
@@ -35,51 +24,27 @@ module.exports.postCreate = (req, res, next) => {
     .catch(next);
 };
 
-module.exports.search = (req, res, next) => {
-  Author.find({})
-    .sort({ _id: -1 })
-    .then((authors) => {
-      const matchedAuthors = authors.filter((author) => {
-        return (
-          author.name.toLowerCase().indexOf(req.query.name.toLowerCase()) !== -1
-        );
-      });
-      User.findOne({ _id: req.signedCookies.userId })
-        .then((user) => {
-          if (user) {
-            res.locals.user = user;
-            res.render("authors/index", {
-              authors: matchedAuthors,
-              values: req.body,
-            });
-          } else {
-            res.render("authors/index", {
-              authors: matchedAuthors,
-              values: req.body,
-            });
-          }
-        })
-        .catch(next);
-    })
-    .catch(next);
+module.exports.search = async (req, res) => {
+  const authors = await Author.find({}).sort({ _id: -1 });
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+  const matchedAuthors = authors.filter((author) => {
+    return (
+      author.name.toLowerCase().indexOf(req.query.name.toLowerCase()) !== -1
+    );
+  });
+  res.render("authors/index", {
+    authors: matchedAuthors,
+    values: req.body,
+    user,
+  });
 };
-module.exports.show = (req, res, next) => {
-  Author.findOne({ slug: req.params.slug })
-    .then((author) => {
-      User.findOne({ _id: req.signedCookies.userId })
-        .then((user) => {
-          if (user) {
-            res.locals.user = user;
-            res.render("authors/show", {
-              author: author,
-            });
-          } else {
-            res.render("authors/show", {
-              author: author,
-            });
-          }
-        })
-        .catch(next);
-    })
-    .catch(next);
+module.exports.show = async (req, res) => {
+  const author = await Author.findOne({ slug: req.params.slug });
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+  res.render("authors/show", {
+    author: author,
+    user,
+  });
 };
