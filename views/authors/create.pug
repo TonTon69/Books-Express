@@ -2,13 +2,22 @@ extends ../layouts/common
 block content
     .d-flex.align-items-center.justify-content-between
         h1 Create Author
-        a(href="/shop/stored/authors") My authors
+        a(href="/shop/stored/authors") Authors
     form(action="/authors/create", method="post")
         .form-group
             label(for="name") Name
-            input#name(type="text", name="name", class="form-control") 
+            input#name(type="text", name="name", class="form-control" required) 
         .form-group
             label(for="image") Image
-            input#image(type="text", name="image", class="form-control") 
+            input#image(type="text", name="image", class="form-control" required) 
+        .form-group
+            label(for="birthday") Birthday
+            input#birthday(type="text", name="birthday", class="form-control" required) 
+        .form-group
+            label(for="address") Address
+            input#address(type="text", name="address", class="form-control" required) 
+        .form-group
+            label(for="description") Description
+            input#description(type="text", name="description", class="form-control" required) 
         
         button.btn.btn-primary.btn-sign-in Create

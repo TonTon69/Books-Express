@@ -1,0 +1,23 @@
+extends ../layouts/common
+block content
+    h1 Update Author
+    form(action="/authors/" + author._id, method="post")
+        .form-group
+            label(for="name") Name
+            input#name(type="text", name="name", value=author.name, class="form-control") 
+        .form-group
+            label(for="image") Image
+            input#image(type="text", name="image", value=author.image, class="form-control") 
+        .form-group
+            label(for="birthday") Birthday
+            input#birthday(type="text", name="birthday", value=author.birthday, class="form-control") 
+        .form-group
+            label(for="address") Address
+            input#address(type="text", name="address", value=author.address, class="form-control") 
+        .form-group
+            label(for="description") Description
+            input#description(type="text", name="description", value=author.description, class="form-control")
+        
+        button.btn.btn-primary Save
+
+        

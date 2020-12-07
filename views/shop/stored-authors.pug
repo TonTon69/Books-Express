@@ -4,13 +4,19 @@ block content
     table.table
         tr
             th Name
-            th Image
+            th Birthday
+            th Address
             th Actions
             th Created At
+            th
         each author in authors
             tr
                 td=author.name
-                td=author.image
+                td=author.birthday
+                td=author.address
                 td
                     a.btn.btn-light(href="/authors/" + author.slug) View
                 td=author.createdAt
+                td
+                    a.btn.btn-link(href="/authors/" + author._id + "/edit") Edit
+                    a.btn.btn-link(href='', data-toggle='modal', data-id=author._id, data-target='#delete-book-modal') Delete

@@ -20,4 +20,23 @@ router.post(
 );
 router.get("/search", authorController.search);
 router.get("/:slug", authorController.show);
+router.get(
+  "/:id/edit",
+  authMiddleware.requireAuth,
+  adminMiddleware.isAdmin,
+  authorController.edit
+);
+router.post(
+  "/:id",
+  authMiddleware.requireAuth,
+  adminMiddleware.isAdmin,
+  authorController.update
+);
+router.delete(
+  "/:id",
+  authMiddleware.requireAuth,
+  adminMiddleware.isAdmin,
+  authorController.delete
+);
+
 module.exports = router;

@@ -15,7 +15,7 @@ module.exports.create = (req, res) => {
   res.render("authors/create");
 };
 module.exports.postCreate = (req, res, next) => {
-  const author = new Author();
+  const author = new Author(req.body);
   author
     .save()
     .then(() => {
@@ -47,4 +47,18 @@ module.exports.show = async (req, res) => {
     author: author,
     user,
   });
+};
+module.exports.edit = async (req, res) => {
+  const author = await Author.findById(req.params.id);
+  res.render("authors/edit", {
+    author: author,
+  });
+};
+module.exports.update = async (req, res) => {
+  await Author.updateOne({ _id: req.params.id }, req.body);
+  res.redirect("/shop/stored/authors");
+};
+module.exports.delete = async (req, res) => {
+  await Author.deleteOne({ _id: req.params.id });
+  res.redirect("back");
 };
