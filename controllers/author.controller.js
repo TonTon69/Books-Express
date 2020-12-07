@@ -19,7 +19,7 @@ module.exports.postCreate = (req, res, next) => {
   author
     .save()
     .then(() => {
-      res.redirect("/authors");
+      res.redirect("/shop/stored/authors");
     })
     .catch(next);
 };

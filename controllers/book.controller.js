@@ -46,7 +46,7 @@ module.exports.postCreate = (req, res, next) => {
   book
     .save()
     .then(() => {
-      res.redirect("/books");
+      res.redirect("/shop/stored/books");
     })
     .catch(next);
 };
