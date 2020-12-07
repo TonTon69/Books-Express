@@ -38,24 +38,31 @@ module.exports.search = async (req, res) => {
   });
 };
 
-module.exports.create = (req, res) => {
-  res.render("books/create");
+module.exports.create = async (req, res) => {
+  try {
+    const authors = await Author.find({});
+    const book = new Book();
+    res.render("books/create", {
+      authors: authors,
+      book: book,
+    });
+  } catch {
+    res.redirect("/books");
+  }
 };
-module.exports.postCreate = (req, res, next) => {
+module.exports.postCreate = async (req, res) => {
   const book = new Book(req.body);
-  book
-    .save()
-    .then(() => {
-      res.redirect("/shop/stored/books");
-    })
-    .catch(next);
+  const newBook = await book.save();
+  res.redirect("/shop/stored/books");
 };
 module.exports.show = async (req, res) => {
   const book = await Book.findOne({ slug: req.params.slug });
+  const author = await Author.find({});
   const userId = req.signedCookies.userId;
   const user = await User.findById(userId);
   res.render("books/show", {
     book: book,
+    author: author,
     user,
   });
 };

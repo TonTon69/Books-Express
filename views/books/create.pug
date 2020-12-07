@@ -19,9 +19,17 @@ block content
         .form-group
             label(for="price_new") Price New
             input#price_new(type="text", name="price_new", class="form-control" required) 
-        //- .form-group
-        //-     label(for="author") Author
-        //-     input#author(type="text", name="author", class="form-control" required) 
+        .input-group.mb-3
+            .input-group-prepend
+                label.input-group-text(for='author') Author
+            select#author.custom-select
+                each author in authors
+                    if author.id === book.author
+                        option(value=author.id selected)
+                            label=author.name
+                    else
+                        option(value=author.id)
+                            label=author.name
         .form-group
             label(for="type") Type
             input#type(type="text", name="type", class="form-control" required) 

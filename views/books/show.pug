@@ -7,8 +7,9 @@ block content
                 h4=book.name
                 p=book.description
                 span By&nbsp
-                    a(href="#")
-                        span(style="color: #111; font-weight: 500")=book.author
+                    if author.id === book.author
+                        a(href="#")
+                            span(style="color: #111; font-weight: 500")=author.name
                 .body-page-item--rating.d-flex.mt-3
                     .star.mr-2.d-flex.align-items-center
                         i.fas.fa-star.mr-1

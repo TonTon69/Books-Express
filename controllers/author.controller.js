@@ -14,14 +14,10 @@ module.exports.index = async (req, res) => {
 module.exports.create = (req, res) => {
   res.render("authors/create");
 };
-module.exports.postCreate = (req, res, next) => {
+module.exports.postCreate = async (req, res) => {
   const author = new Author(req.body);
-  author
-    .save()
-    .then(() => {
-      res.redirect("/shop/stored/authors");
-    })
-    .catch(next);
+  const newAuthor = await author.save();
+  res.redirect("/shop/stored/authors");
 };
 
 module.exports.search = async (req, res) => {
