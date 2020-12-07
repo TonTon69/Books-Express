@@ -32,7 +32,6 @@ block content
         a.d-flex.pt-2.pb-2(href='/auth/settings/account/edit/password', style='cursor: pointer; text-decoration: none; color: #333')
             div(style='flex: 1 1')
                 h5(style='font-weight: 450') Password
-                span(style='color: #009090') ********
+                span(style='color: #009090', type='password') ********
             i.fas.fa-chevron-right.d-flex.align-items-center
         .dropdown-divider
-        a.btn.btn-link.float-right.text-danger(href='', data-toggle='modal', data-id='{{user._id}}', data-target='#delete-user-account', style='text-decoration: none;') Delete account
