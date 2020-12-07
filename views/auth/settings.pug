@@ -1,19 +1,19 @@
 extends ../layouts/common
 block content
-    .row
-        .col-lg-4
-            .d-flex(href='', style='cursor: pointer; text-decoration: none')
-                img.rounded.mr-3(src=user.avatar, data-toggle='modal', data-target='#update-user-avatar', style='width: 69px; height: 69px; object-fit: cover')
-                div
-                    h5(style='color: #333')=user.name
-                
-        .col-lg-6
-            h2.mb-4(style='font-weight: 500; font-size: 2.4rem') Settings
-            .dropdown-divider
-            a.d-flex.pt-2.pb-2(href='/auth/settings/account', style='cursor: pointer; text-decoration: none; color: #333')
-                i.fas.fa-id-card.d-flex.align-items-center.mr-4(style='font-size: 2.4rem')
-                div(style='flex: 1 1')
-                    h5 Account
-                    p(style='margin: 0') Login information, Personal information
-                i.fas.fa-chevron-right.d-flex.align-items-center
-            .dropdown-divider
+    div(style="min-height: 100vh")
+        .row
+            .col-lg-4
+                .d-flex(href='', style='cursor: pointer; text-decoration: none')
+                    img.rounded.mr-3(src=user.avatar, data-toggle='modal', data-target='#update-user-avatar', style='width: 69px; height: 69px; object-fit: cover')
+                    div
+                        h5(style='color: #333')=user.name             
+            .col-lg-6
+                h2.mb-4(style='font-weight: 500; font-size: 2.4rem') Settings
+                .dropdown-divider
+                a.d-flex.pt-2.pb-2(href='/auth/settings/account', style='cursor: pointer; text-decoration: none; color: #333')
+                    i.fas.fa-id-card.d-flex.align-items-center.mr-4(style='font-size: 2.4rem')
+                    div(style='flex: 1 1')
+                        h5 Account
+                        p(style='margin: 0') Login information, Personal information
+                    i.fas.fa-chevron-right.d-flex.align-items-center
+                .dropdown-divider

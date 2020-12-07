@@ -2,35 +2,37 @@ extends ../layouts/common
 block content
   .row
     .col-lg-4
-      .d-flex(href='', style='cursor: pointer; text-decoration: none')
-        img.rounded.mr-3(src=user.avatar, data-toggle='modal', data-target='#update-user-avatar', style='width: 69px; height: 69px; object-fit: cover')
-        div
-          h5(style='color: #333')=user.name
-          
+        .d-flex(href='', style='cursor: pointer; text-decoration: none')
+            img.rounded.mr-3(src=user.avatar, data-toggle='modal', data-target='#update-user-avatar', style='width: 69px; height: 69px; object-fit: cover')
+            div
+                h5(style='color: #333')=user.name        
     .col-lg-6
-      a(href='/auth/settings', style='text-decoration: none')
-        i.fas.fa-chevron-left
-        span C&agrave;i &dstrok;&#x1EB7;t
-      .d-flex.mt-4.mb-4
-        i.fas.fa-id-card.mt-2.mr-5(style='font-size: 2.4rem')
-        div
-          h2.mb-3(style='font-weight: 500; font-size: 2.4rem') T&agrave;i kho&#x1EA3;n
-          p Qu&#x1EA3;n l&yacute; th&ocirc;ng tin &dstrok;&abreve;ng nh&#x1EAD;p v&agrave; th&ocirc;ng tin c&aacute; nh&acirc;n c&#x1EE7;a b&#x1EA1;n
-      div
-        h5(style='font-size: 1.05rem') Th&ocirc;ng tin &dstrok;&abreve;ng nh&#x1EAD;p
+        a(href='/auth/settings', style='text-decoration: none')
+            i.fas.fa-chevron-left
+            span &nbspSettings
+        .d-flex.mt-4.mb-4
+            i.fas.fa-id-card.mt-2.mr-5(style='font-size: 2.4rem')
+            div
+                h2.mb-3(style='font-weight: 500; font-size: 2.4rem') Account
+                p Manage your login information and personal information
+        h5(style='font-size: 1.05rem') Login information
         .dropdown-divider
-        a.d-flex.pt-2.pb-2(href='/user/settings/accounts/edit/username', style='cursor: pointer; text-decoration: none; color: #333')
-          div(style='flex: 1 1')
-            h5(style='font-weight: 450') T&ecirc;n ng&#x1B0;&#x1EDD;i d&ugrave;ng
-            span(style='color: #009090') {{user.username}}
-          i.fas.fa-chevron-right.d-flex.align-items-center
+        a.d-flex.pt-2.pb-2(href='/auth/settings/account/edit/name', style='cursor: pointer; text-decoration: none; color: #333')
+            div(style='flex: 1 1')
+                h5(style='font-weight: 450') Name
+                span(style='color: #009090')=user.name
+            i.fas.fa-chevron-right.d-flex.align-items-center
         .dropdown-divider
-        a.d-flex.pt-2.pb-2(href='/user/settings/accounts/edit/password', style='cursor: pointer; text-decoration: none; color: #333')
-          div(style='flex: 1 1')
-            h5(style='font-weight: 450') M&#x1EAD;t kh&#x1EA9;u
-            span(style='color: #009090') ********
-          i.fas.fa-chevron-right.d-flex.align-items-center
+        a.d-flex.pt-2.pb-2(href='/auth/settings/account/edit/email', style='cursor: pointer; text-decoration: none; color: #333')
+            div(style='flex: 1 1')
+                h5(style='font-weight: 450') Email
+                span(style='color: #009090')=user.email
+            i.fas.fa-chevron-right.d-flex.align-items-center
         .dropdown-divider
-        a.btn.btn-link.float-right.text-danger(href='', data-toggle='modal', data-id='{{user._id}}', data-target='#delete-user-account', style='text-decoration: none;')
-          | X&oacute;a t&agrave;i
-          | kho&#x1EA3;n
+        a.d-flex.pt-2.pb-2(href='/auth/settings/account/edit/password', style='cursor: pointer; text-decoration: none; color: #333')
+            div(style='flex: 1 1')
+                h5(style='font-weight: 450') Password
+                span(style='color: #009090') ********
+            i.fas.fa-chevron-right.d-flex.align-items-center
+        .dropdown-divider
+        a.btn.btn-link.float-right.text-danger(href='', data-toggle='modal', data-id='{{user._id}}', data-target='#delete-user-account', style='text-decoration: none;') Delete account
