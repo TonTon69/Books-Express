@@ -167,7 +167,8 @@ img {
   border-color: #fb5533;
 }
 .btn-sign-up,
-.btn-sign-in {
+.btn-sign-in,
+.btn-submit {
   width: 150px;
   height: 49px;
   font-weight: 600;

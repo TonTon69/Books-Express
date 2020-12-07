@@ -1,8 +1,15 @@
 extends ../layouts/common
 block content
-    .row(style="background-color: #f7f8fd; border-radius: 6px;")
+    .row(style="background-color: #f7f8fd; border-radius: 6px; display: block")
         .view-author.d-flex
             img.m-4(src=author.image, style="width: 400px; height: 500px; object-fit: cover")
             .m-4(style="position: relative")
-                h4=author.name
-                
+                h4.mb-4=author.name
+                .d-flex
+                    div 
+                        p Date of birth:
+                        p Address:
+                    .ml-5
+                        p=author.birthday
+                        p=author.address
+                p=author.description 
