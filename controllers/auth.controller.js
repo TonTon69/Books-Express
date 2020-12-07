@@ -27,7 +27,20 @@ module.exports.postSignin = async (req, res) => {
   });
   res.redirect("/");
 };
-
+module.exports.settings = async (req, res) => {
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+  res.render("auth/settings", {
+    user,
+  });
+};
+module.exports.account = async (req, res) => {
+  const userId = req.signedCookies.userId;
+  const user = await User.findById(userId);
+  res.render("auth/account", {
+    user,
+  });
+};
 module.exports.logout = (req, res) => {
   res.clearCookie("userId");
   res.clearCookie("sessionId");

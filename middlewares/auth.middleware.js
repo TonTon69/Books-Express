@@ -5,12 +5,11 @@ module.exports.requireAuth = (req, res, next) => {
     res.redirect("/auth/signin");
     return;
   }
-  User.findOne({ _id: req.signedCookies.userId }).then((user) => {
-    if (!user) {
-      res.redirect("/auth/signin");
-      return;
-    }
-    res.locals.user = user;
-    next();
-  });
+  const user = User.findOne({ _id: req.signedCookies.userId });
+  if (!user) {
+    res.redirect("/auth/signin");
+    return;
+  }
+  res.locals.user = user;
+  next();
 };
