@@ -12,7 +12,7 @@ const userSchema = new Schema(
     },
     password: { type: String, require: true },
     avatar: { type: String },
-    role: { type: Number, default: 0 },
+    role: { type: Boolean, default: false },
   },
   {
     timestamps: true,

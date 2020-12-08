@@ -37,6 +37,7 @@ const transferRouter = require("./routes/transfer.route");
 const authorRouter = require("./routes/author.route");
 
 const authMiddleware = require("./middlewares/auth.middleware");
+const adminMiddleware = require("./middlewares/admin.middleware");
 const sessionMiddleware = require("./middlewares/session.middleware");
 
 app.set("view engine", "pug");
@@ -54,7 +55,7 @@ app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
 // Home Route
-app.get("/", async (req, res, next) => {
+app.get("/", async (req, res) => {
   const page = parseInt(req.query.page) || 1;
   const perPage = 8;
   const start = (page - 1) * perPage;
@@ -75,7 +76,12 @@ app.get("/", async (req, res, next) => {
 app.use("/books", bookRouter);
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
-app.use("/shop", shopRouter);
+app.use(
+  "/shop",
+  authMiddleware.requireAuth,
+  adminMiddleware.isAdmin,
+  shopRouter
+);
 app.use("/cart", cartRouter);
 app.use("/transfer", authMiddleware.requireAuth, transferRouter);
 app.use("/authors", authorRouter);

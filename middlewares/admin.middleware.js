@@ -1,8 +1,7 @@
 module.exports.isAdmin = (req, res, next) => {
-  const { role } = res.locals.user;
-  if (role >= 1) {
-    next();
-  } else {
+  if (!res.locals.user.role) {
     res.redirect("/");
+    return;
   }
+  next();
 };
